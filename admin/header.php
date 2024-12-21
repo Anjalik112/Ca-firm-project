@@ -141,12 +141,12 @@ if(!isset($_SESSION["lg_id"]))
   <header id="header" class="navbar navbar-expand-lg navbar-fixed navbar-height navbar-container navbar-bordered bg-white">
     <div class="navbar-nav-wrap">
       <!-- Logo -->
-      <a class="navbar-brand" href="#" aria-label="Yantra">
+      <!-- <a class="navbar-brand" href="#" aria-label="Yantra">
         <img class="navbar-brand-logo" src="..\assets\img\yantra\RuchaYantraLLPLogo.png" alt="Logo" data-hs-theme-appearance="default">
         <img class="navbar-brand-logo" src="..\assets\img\yantra\RuchaYantraLLPLogo.png" alt="Logo" data-hs-theme-appearance="dark">
         <img class="navbar-brand-logo-mini" src="..\assets\img\yantra\yantralogo.png" alt="Logo" data-hs-theme-appearance="default">
         <img class="navbar-brand-logo-mini"  src="..\assets\img\yantra\yantralogo.png"  alt="Logo" data-hs-theme-appearance="dark">
-      </a>
+      </a> -->
       <!-- End Logo -->
 
       <div class="navbar-nav-wrap-content-start">
@@ -325,7 +325,7 @@ if(!isset($_SESSION["lg_id"]))
               </a>
             </div>
             
-            <span class="dropdown-header mt-4">Yantra </span>
+            <span class="dropdown-header mt-4">Causeway EXIM </span>
             <small class="bi-three-dots nav-subtitle-replacer"></small>
 
             <!-- Collapse -->
@@ -372,69 +372,6 @@ if(!isset($_SESSION["lg_id"]))
                 </div>
               </div>
               <!-- End Collapse -->
-
-
-              
-              <span class="dropdown-header mt-4">Career</span>
-            <small class="bi-three-dots nav-subtitle-replacer"></small>
-
-            <!-- Collapse -->
-            <div class="navbar-nav nav-compact">
-
-            </div>
-            <div id="navbarVerticalMenuPagesMenu1">
-              <!-- Collapse -->
-              <div class="nav-item">
-                <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuPagesUsersMenu1" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesUsersMenu1" aria-expanded="false" aria-controls="navbarVerticalMenuPagesUsersMenu1">
-                  <i class="bi-people nav-icon"></i>
-                  <span class="nav-link-title">Roles</span>
-                </a>
-
-                <div id="navbarVerticalMenuPagesUsersMenu1" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenu1">
-                  <a class="nav-link " href="../career/index.php">Overview</a>
-                 
-                </div>
-              </div>
-              <!-- End Collapse -->
-
-
-              <span class="dropdown-header mt-4">Blog</span>
-            <small class="bi-three-dots nav-subtitle-replacer"></small>
-
-            <!-- Collapse -->
-            <div class="navbar-nav nav-compact">
-
-            </div>
-            <div id="navbarVerticalMenuPagesMenu4">
-              <!-- Collapse -->
-              <div class="nav-item">
-                <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuPagesUsersMenu4" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesUsersMenu4" aria-expanded="false" aria-controls="navbarVerticalMenuPagesUsersMenu1">
-                  <i class="bi-people nav-icon"></i>
-                  <span class="nav-link-title">Blogs</span>
-                </a>
-
-                <div id="navbarVerticalMenuPagesUsersMenu4" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenu4">
-                  <a class="nav-link " href="../blog/index.php">Overview</a>
-                 
-                </div>
-              </div>
-              <!-- End Collapse -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-          </div>
-
-        </div>
         <!-- End Content -->
 
         <!-- Footer -->

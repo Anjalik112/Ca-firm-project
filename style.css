@@ -2057,16 +2057,16 @@ html {
   }
   
   :root {
-    --black: #111;
-    --paragraph-gray: #555;
-    --primary: #fdd490;
-    --beige: #fff1e5;
-    --primary-light: #faecd8;
-    --white: white;
-    --shadow-gray: #21266a14;
-    --transparent: #0000;
-    --dark-gray\<deleted\|variable-e2382e90\>: #afafaf;
-    --light-beige: #fff8ef;
+    --black: #0D0D0D; 
+    --paragraph-gray: #4A4A4A;
+    --primary: #0056D2; 
+    --beige: #FFEDE0; 
+    --primary-light: #F0F8FF; 
+    --white: #FFFFFF; 
+    --shadow-gray: rgba(33, 38, 106, 0.08); 
+    --transparent: transparent; 
+    --dark-gray: #8C8C8C; 
+    --light-beige: #FFF6EB; 
     --image-radius: 6px;
     --radius-large: 56px;
     --button-radius: 46px;
@@ -3753,9 +3753,13 @@ html {
   
   .primary-button:hover {
     border-color: var(--primary);
-    background-color: var(--primary);
+    background-image: linear-gradient(90deg, var(--primary), var(--paragraph-gray)); /* Apply gradient */
     color: var(--black);
-  }
+    background-clip: text; /* Allows the gradient to apply only to the text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Ensures the gradient text is visible */
+}
+
   
   .primary-button.full-width-mobile {
     display: block;

@@ -2,6 +2,20 @@
 
 include("../header.php");
 
+if(!isset($_GET["id"]))
+{
+    echo "<script> window.location.href='index.php';</script>";
+}
+
+$pdata=mysqli_query($con,"select * from product_master where id=".$_GET["id"]."");
+if(!$pdata)
+{
+    echo "<script> window.location.href='index.php';</script>";
+}
+
+$pdata=mysqli_fetch_assoc($pdata);
+
+
 
 function UserMessage($msg,$type)
 {
@@ -29,15 +43,15 @@ function UserMessage($msg,$type)
 }
 
 //Delete Role 
-if(isset($_GET["dc"]))
+if(isset($_GET["d"]) && isset($_GET["fid"]))
 {
     try{
-        if($_GET["dc"]==1)
+        if($_GET["d"]==1)
         {
-            $rs=mysqli_query($con,"update career_master set status=0 where id=".$_GET["id"]."");
+            $rs=mysqli_query($con,"delete from product_field_master where id=".$_GET["fid"]."");
             if($rs)
             {
-                UserMessage("Role Deleted Successfully","success");
+                UserMessage("Field Deleted Successfully","success");
             }
             else
             {
@@ -52,23 +66,18 @@ if(isset($_GET["dc"]))
 }
 
 
-//Add new Role Code
-if(isset($_POST["addbtn"]))
+//Add new field Code
+if(isset($_GET["addbtn"]))
 {
         try{
 
-            $rs=mysqli_query($con,"insert into career_master(jtitle,jno,jsalary,jedu,jexp,jskill,jdesc,jcontact,status)
-             values('".$_POST["jtitle"]."',
-             ".$_POST["nposition"].",
-             '".$_POST["salary"]."',
-             '".$_POST["edu"]."',
-             '".$_POST["experiance"]."',
-             '".$_POST["skill"]."',
-             '".$_POST["jdesc"]."',
-             '".$_POST["contact"]."',1)");
+            $rs=mysqli_query($con,"insert into product_field_master(p_id,f_name,f_value)
+             values(".$pdata["id"].",'".$_GET["fname"]."',
+             '".$_GET["fvalue"]."')");
             if($rs)
             {
-                    UserMessage("Career role added Successfully","success");
+                    UserMessage("Field added Successfully","success");         
+    echo "<script> window.location.href='fields.php?id=".$pdata["id"]."';</script>";
             }
         }catch(Exception $e)
         {
@@ -86,13 +95,13 @@ if(isset($_POST["addbtn"]))
       <div class="page-header">
         <div class="row align-items-center">
           <div class="col">
-            <h1 class="page-header-title">Career Opening</h1>
+            <h1 class="page-header-title">Product - <?php echo $pdata["ptitle"];?> </h1>
           </div>
           <!-- End Col -->
 
           <div class="col-auto">
             <a class="btn btn-danger" href="javascript:;" data-bs-toggle="modal" data-bs-target="#CareerAddModal">
-              <i class="bi-person-plus-fill me-1"></i> Add Opening
+              <i class="bi-person-plus-fill me-1"></i> Add Fields
             </a>
           </div>
           <!-- End Col -->
@@ -108,7 +117,7 @@ if(isset($_POST["addbtn"]))
       <div class="modal-content">
         <!-- Header -->
         <div class="modal-header">
-          <h4 class="modal-title" id="accountAddAddressModalLabel">New Opening</h4>
+          <h4 class="modal-title" id="accountAddAddressModalLabel">New Field</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <!-- End Header -->
@@ -116,79 +125,24 @@ if(isset($_POST["addbtn"]))
         <!-- Body -->
         <div class="modal-body">
           <!-- Form -->
-          <form action="./index.php" method="POST">
+          <form action="./fields.php" method="GET">
             <!-- Form -->
             <div class="row mb-4">
-              <label for="locationLabel" class="col-sm-3 col-form-label form-label">Job Title</label>
+              <label for="locationLabel" class="col-sm-3 col-form-label form-label">Field Name</label>
               <div class="col-sm-9">
     
-                <input type="text" class="form-control" name="jtitle" id="jtitle" placeholder="Job title" aria-label="Job Title">
+              <input type="text" hidden class="form-control" name="id" value="<?php echo $pdata["id"];?>" id="fname" placeholder="field name" aria-label="Job Title">
+                <input type="text" class="form-control" name="fname" id="fname" placeholder="field name" aria-label="Job Title">
               </div>
             </div>
             <!-- End Form -->
 
              <!-- Form -->
              <div class="row mb-4">
-              <label for="locationLabel" class="col-sm-3 col-form-label form-label">No of position</label>
+              <label for="locationLabel" class="col-sm-3 col-form-label form-label">Field Value</label>
               <div class="col-sm-9">
     
-                <input type="text" class="form-control" name="nposition" id="nposition" placeholder="Number of positions" aria-label="Number of positions">
-              </div>
-            </div>
-            <!-- End Form -->
-
-              <!-- Form -->
-              <div class="row mb-4">
-              <label for="locationLabel" class="col-sm-3 col-form-label form-label">Salary</label>
-              <div class="col-sm-9">
-    
-                <input type="text" class="form-control" name="salary" id="salary" placeholder="Enter salary" aria-label="Enter salary">
-              </div>
-            </div>
-            <!-- End Form -->
-
-            <!-- Form -->
-            <div class="row mb-4">
-              <label for="locationLabel" class="col-sm-3 col-form-label form-label">Education</label>
-              <div class="col-sm-9">
-    
-                <input type="text" class="form-control" name="edu" id="edu" placeholder="Minimum education requiered" aria-label="Minimum education requiered">
-              </div>
-            </div>
-            <!-- End Form -->
-
-          <!-- Form -->
-          <div class="row mb-4">
-              <label for="locationLabel" class="col-sm-3 col-form-label form-label">Experiance</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control" name="experiance" id="experiance" placeholder="Minimum experiance requiered" aria-label="Minimum experiance requiered">
-              </div>
-            </div>
-            <!-- End Form -->
-
-         <!-- Form -->
-        <div class="row mb-4">
-              <label for="locationLabel" class="col-sm-3 col-form-label form-label">Skills Requiered</label>
-              <div class="col-sm-9">
-                <textarea class="form-control" name="skill" id="skill" placeholder="Skills requiered" aria-label="Skills requiered"></textarea>
-              </div>
-            </div>
-            <!-- End Form -->
-
-  <!-- Form -->
-  <div class="row mb-4">
-              <label for="locationLabel" class="col-sm-3 col-form-label form-label">Job Description</label>
-              <div class="col-sm-9">
-                <textarea class="form-control" name="jdesc" id="jdesc" placeholder="Detail job description" aria-label="Detail job description"></textarea>
-              </div>
-            </div>
-            <!-- End Form -->
-
-             <!-- Form -->
-          <div class="row mb-4">
-              <label for="locationLabel" class="col-sm-3 col-form-label form-label">Contact</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control" name="contact" id="contact" placeholder="Contact Info" aria-label="Contact Info">
+                <input type="text" class="form-control" name="fvalue" id="fvalue" placeholder="Field value" aria-label="Field value">
               </div>
             </div>
             <!-- End Form -->
@@ -197,7 +151,7 @@ if(isset($_POST["addbtn"]))
 
             <div class="d-flex justify-content-end gap-sm-3">
               <button type="button" class="btn btn-white me-2 me-sm-0" data-dismiss="modal">Close</button>
-              <button type="submit" name="addbtn" class="btn btn-outline-success">Add Role</button>
+              <button type="submit" name="addbtn" class="btn btn-outline-success">Add Field</button>
             </div>
           </form>
           <!-- End Form -->
@@ -257,7 +211,7 @@ if(isset($_POST["addbtn"]))
         <div class="table-responsive datatable-custom position-relative">
           <table id="datatable" class="table table-lg table-borderless table-thead-bordered table-nowrap table-align-middle card-table" data-hs-datatables-options='{
                    "columnDefs": [{
-                      "targets": [0, 9],
+                      "targets": [0, 3],
                       "orderable": false
                     }],
                    "order": [],
@@ -276,21 +230,15 @@ if(isset($_POST["addbtn"]))
                 <th class="table-column-pe-0">
                  ID 
                 </th>
-                <th class="table-column-ps-0">Job Title</th>
-                <th>No of position</th>
-                <th>Salary</th>
-                <th>Education</th>
-                <th>Experiance</th>
-                <th>Skills</th>
-                <th>Job Description</th>
-                <th>Contact</th>
-                <th> Action </th>
-              </tr>
+                <th class="table-column-ps-0">Field Name</th>
+                <th>Field Value </th>
+                <th>Action</th>
+                </tr>
             </thead>
             <tbody>
                 <?php
                     $c=1;
-                    $rs=mysqli_query($con,"select * from career_master where status=1 order by id desc;");
+                    $rs=mysqli_query($con,"select * from product_field_master where p_id=".$pdata["id"].";");
                     while($data=mysqli_fetch_assoc($rs))
                     {
                        echo '
@@ -302,25 +250,17 @@ if(isset($_POST["addbtn"]))
                          <a class="d-flex align-items-center" href="#">
                            <div class="ms-3">
                              <span class="d-block h5 text-inherit mb-0">
-                                    '.$data["jtitle"].'
+                                    '.$data["f_name"].'
                            </div>
                          </a>
                        </td>
                        <td>
-                         <span class="d-block h5 mb-0">'.$data["jno"].'</span>
+                         <span class="d-block h5 mb-0">'.$data["f_value"].'</span>
                        </td>
-                       <td>'.$data["jsalary"].'</td>
                        <td>
-                            '.$data["jedu"].'
-                       </td>
-                       <td>'.$data["jexp"].'</td>
-                       <td style="width:30%; word-wrap: break-word; white-space:pre-wrap;">'.$data["jskill"].'</td>
-                       <td style="width:30%; word-wrap: break-word; white-space:pre-wrap;">'.$data["jdesc"].'</td>
-                       <td>'.$data["jcontact"].'</td>
-                       <td>
-                       <button type="button" onclick="warningFunc(\''.$data["id"].'\',\''.$data["jtitle"].' \')" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                       <a  class="btn btn-outline-danger btn-sm" href="fields.php?id='.$pdata["id"].'&fid='.$data["id"].'&d=1" >
                            <i class="bi-trash me-1"></i> Delete 
-                         </button>
+                         </a>
                        </td>
                      </tr>
                        
@@ -330,25 +270,6 @@ if(isset($_POST["addbtn"]))
                 
                 ?>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Delete Job Posting?</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body" id="wmessage">
-         
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button>
-        <a class="btn btn-primary" href="#" id="wdeletebtn">Delete</a>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- End Modal -->    
             </tbody>
           </table>
         </div>
@@ -395,17 +316,7 @@ if(isset($_POST["addbtn"]))
         <!-- End Footer -->
       </div>
       <!-- End Card -->
-      <script>
-function warningFunc(id,title)
-{
-    var message=document.getElementById("wmessage");
-    message.innerHTML='Are you sure to delete the job posting titled "'+title+'"?';
-    var dbtn=document.getElementById("wdeletebtn");
-    dbtn.setAttribute('href','./index.php?dc=1&id='+id);
-}
-</script>
-
-
+ 
 
 
 
@@ -413,9 +324,7 @@ function warningFunc(id,title)
 
 
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-white" data-bs-dismiss="modal">Close</button>
-      </div>
+      
     </div>
   </div>
 </div>
