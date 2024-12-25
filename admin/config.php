@@ -1,6 +1,6 @@
 <?php
 session_start();
-$db="yantra";
+$db="causeway";
 $user="root";
 $pwd="Sujit@5566";
 $server="localhost";

@@ -41,11 +41,7 @@
               </div>
             </div>
             <div class="menu-wrap">
-              <div data-hover="true" data-delay="0" data-w-id="fb88dbbd-6236-7bdd-78cd-9f14985e240b" class="nav-dropdown w-dropdown">
-                <div class="nav-dropdown-toggle w-dropdown-toggle">
-                  <p class="nav-item-title white">Home</p>
-                </div>
-              </div>
+              <a href="index.php" class="nav-link white w-nav-link">Home</a>
               <div data-hover="true" data-delay="0" data-w-id="fb88dbbd-6236-7bdd-78cd-9f14985e2426" class="nav-dropdown w-dropdown">
                 <div class="nav-dropdown-toggle w-dropdown-toggle">
                   <p class="nav-item-title white">About Us</p>
@@ -53,53 +49,24 @@
                 <nav class="nav-dropdown-list w-dropdown-list">
                   <div class="nav-dropdown-link-wrapper">
                     <a href="about.php" class="nav-dropdown-link w-dropdown-link">
-                      <span class="nav-dropdown-link-line"> </span>Why Choose Us
+                      <span class="nav-dropdown-link-line"> </span>Vision
                     </a>
                     <a href="about.php" class="nav-dropdown-link w-dropdown-link">
-                      <span class="nav-dropdown-link-line"> </span>Vision &amp; Mission
-                    </a>
-                    <a href="/our-team" class="nav-dropdown-link w-dropdown-link">
-                      <span class="nav-dropdown-link-line"> </span>Our Team
+                      <span class="nav-dropdown-link-line"> </span>Mission
                     </a>
                   </div>
                 </nav>
               </div>
-              <div data-hover="true" data-delay="0" data-w-id="2061d19a-a574-d167-9f90-40ca279fb73d" class="nav-dropdown w-dropdown">
-                <div class="nav-dropdown-toggle w-dropdown-toggle">
-                  <p class="nav-item-title white">Products</p>
-                </div>
-                <nav class="nav-dropdown-list w-dropdown-list">
-                  <div class="nav-dropdown-link-wrapper">
-                    <a href="/solutions-1" class="nav-dropdown-link w-dropdown-link">
-                      <span class="nav-dropdown-link-line"> </span>Products 1
-                    </a>
-                    <a href="/solutions-2" class="nav-dropdown-link w-dropdown-link">
-                      <span class="nav-dropdown-link-line"> </span>Products 2
-                    </a>
-                    <a href="/solutions-3" class="nav-dropdown-link w-dropdown-link">
-                      <span class="nav-dropdown-link-line"> </span>Products 3
-                    </a>
-                    <div class="collection-list-wrapper w-dyn-list">
-                      <div role="list" class="w-dyn-items">
-                        <div role="listitem" class="w-dyn-item">
-                          <a href="/solutions/supporting-businesses-worldwide" class="nav-dropdown-link w-dropdown-link">
-                            <span class="nav-dropdown-link-line"> </span>Product Details
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </nav>
-              </div>
+              <a href="product.php" class="nav-link white w-nav-link">Product</a>
               <a href="contact.php" class="nav-link white w-nav-link">Contact Us</a>
               <div class="nav-tablet-button-holder">
-                <a href="contact.php" class="primary-button w-button">Get in Touch</a>
+                <a href="contact.php#contact-form" class="primary-button w-button">Request Quote</a>
               </div>
             </div>
           </nav>
           <div class="w-layout-hflex nav-buttons">           
             <div class="nav-button-wrapper">
-              <a href="/contact-us" class="primary-button-white-color w-button">Get in Touch</a>
+              <a href="contact.php#contact-form" class="primary-button-white-color w-button">Request Quote</a>
             </div>
             <div class="menu-button w-nav-button">
             <img src="https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533d6b_menu%20btn%20white%20.svg" loading="lazy" alt="menu btn white" height="16" class="image-burger"/>

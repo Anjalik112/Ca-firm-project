@@ -17,10 +17,10 @@ if(!isset($_SESSION["lg_id"]))
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title>Yantra LLP</title>
+  <title>Causeway EXIM | Admin</title>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="../assets/img/yantra/favicon.ico">
+  <link rel="shortcut icon" href="https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/671637dd4a66546122ecaa4d_roadtrack-favicon.png">
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -367,7 +367,7 @@ if(!isset($_SESSION["lg_id"]))
                 </a>
 
                 <div id="navbarVerticalMenuPagesUsersMenu2" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenu">
-                  <a class="nav-link " href="../contact/index.php">Buy request</a>
+                  <!-- <a class="nav-link " href="../contact/index.php">Buy request</a> -->
                   <a class="nav-link " href="../contact/contactreq.php">Contact request</a>
                 </div>
               </div>

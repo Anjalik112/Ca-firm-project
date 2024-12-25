@@ -25,7 +25,7 @@
         </div>
       </div>
       <div data-w-id="338eebd3-fef1-158a-5f15-b6c0e0850c60" style="opacity:0">
-        <a href="/contact-us" class="primary-button-white-color primary-shadow w-button">Get Started Now</a>
+        <a href="contact.php#contact-form" class="primary-button-white-color primary-shadow w-button">Get Started Now</a>
       </div>
     </div>
   </div>
@@ -429,7 +429,7 @@
         </div>
         </div>
       </section>
-    <section class="black-background">
+    <!-- <section class="black-background">
       <div class="top-cta-wrapper no-negative-space">
         <div class="w-layout-blockcontainer base-container w-container">
           <div class="top-cta-content-wrapper">
@@ -458,5 +458,5 @@
             </div>
           </div>
         </div>
-    </section>
+    </section> -->
 <?php include 'footer.php'; ?>

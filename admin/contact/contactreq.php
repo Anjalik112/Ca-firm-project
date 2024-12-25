@@ -15,8 +15,6 @@ if(isset($_GET["id"]))
   }
 
 }
-
-
 ?>
 
 <!-- Content -->
@@ -27,18 +25,11 @@ if(isset($_GET["id"]))
           <div class="col">
             <h1 class="page-header-title">Contact Enquiry</h1>
           </div>
-          <!-- End Col -->
-
-         
+          <!-- End Col -->        
         </div>
         <!-- End Row -->
       </div>
       <!-- End Page Header -->
-
-     
-
-
-
 
        <!-- Card -->
        <div class="card">
