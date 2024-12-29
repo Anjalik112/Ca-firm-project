@@ -29,7 +29,7 @@ if(!isset($_SESSION["lg_id"]))
   <link rel="stylesheet" href="../assets/vendor/bootstrap-icons/font/bootstrap-icons.css">
 
   <!-- CSS Front Template -->
-
+  
   <link rel="preload" href="../assets/css/theme.min.css" data-hs-appearance="default" as="style">
   <link rel="preload" href="../assets/css/theme-dark.min.css" data-hs-appearance="dark" as="style">
 
@@ -367,7 +367,7 @@ if(!isset($_SESSION["lg_id"]))
                 </a>
 
                 <div id="navbarVerticalMenuPagesUsersMenu2" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenu">
-                  <!-- <a class="nav-link " href="../contact/index.php">Buy request</a> -->
+                  <a class="nav-link " href="../contact/index.php">Buy request</a>
                   <a class="nav-link " href="../contact/contactreq.php">Contact request</a>
                 </div>
               </div>

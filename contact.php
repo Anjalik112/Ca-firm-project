@@ -8,15 +8,17 @@ if (isset($_POST["submit"])) {
     $l_name = htmlspecialchars(trim($_POST["Last-Name"]));
     $email = htmlspecialchars(trim($_POST["email-2"]));
     $phone = htmlspecialchars(trim($_POST["Phone"]));
+    $location = htmlspecialchars(trim($_POST["Location"]));
+    $p_name = htmlspecialchars(trim($_POST["Product"]));
     $message = htmlspecialchars(trim($_POST["Message"]));
 
     // Prepare the SQL query
-    $query = "INSERT INTO contact_master (f_name, l_name, email_id, phone_no, msg, req_date_time, status) 
-              VALUES (?, ?, ?, ?, ?, NOW(), 1)";
+    $query = "INSERT INTO contact_master (f_name, l_name, email_id, phone_no, location, p_name, msg, req_date_time, status) 
+              VALUES (?, ?, ?, ?, ?,?,?, NOW(), 1)";
 
     if ($stmt = $con->prepare($query)) {
         // Bind parameters to the query
-        $stmt->bind_param("sssss", $f_name, $l_name, $email, $phone, $message);
+        $stmt->bind_param("sssssss", $f_name, $l_name, $email, $phone, $location,$p_name, $message);
 
         // Execute the query
         if ($stmt->execute()) {
@@ -102,6 +104,10 @@ if (isset($_POST["submit"])) {
                                     <div class="div-block-2">
                                         <input class="contacts-input w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="Phone" type="tel" id="Phone" required=""/>
                                         <input class="contacts-input w-input" maxlength="256" name="email-2" data-name="Email 2" placeholder="Email" type="email" id="email-2" required=""/>
+                                    </div>
+                                    <div class="div-block-2">
+                                        <input class="contacts-input w-input" maxlength="256" name="Location" data-name="Location" placeholder="Location" type="text" id="Location" required=""/>
+                                        <input class="contacts-input w-input" maxlength="256" name="Product" data-name="Product" placeholder="Product Name" type="text" id="Product" required=""/>
                                     </div>
                                     <textarea placeholder="Message" maxlength="5000" id="Message" name="Message" data-name="Message" required="" class="contacts-textarea w-input"></textarea>
                                     <input type="submit" data-wait="Please wait..." class="primary-button contact-us-button w-button" name="submit" value="Submit"/>

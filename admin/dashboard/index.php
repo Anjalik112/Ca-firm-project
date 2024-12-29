@@ -70,20 +70,6 @@ include("../header.php");
     <!-- End Content -->   
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <?php
   include("../footer.php");
   

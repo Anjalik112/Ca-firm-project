@@ -10,7 +10,7 @@
           </h1>
           <p data-w-id="338eebd3-fef1-158a-5f15-b6c0e0850c4e" style="opacity:0" class="text-color-white width-medium">We specialize in revolutionizing logistics for businesses worldwide. Our comprehensive solutions ensure seamless supply chain management, from warehousing to distribution.
           </p>
-        <div class="banner-numbers-wrapper large-width">
+        <!-- <div class="banner-numbers-wrapper large-width">
         <div data-w-id="338eebd3-fef1-158a-5f15-b6c0e0850c51" style="opacity:0" class="number-item line-tablet-width-medium">
           <div class="number-text medium-size-text-white">4K+</div>
           <p class="paragraph-small text-color-white">Satisfied clients</p>
@@ -23,7 +23,7 @@
           <div class="number-text medium-size-text-white">300</div>
           <p class="paragraph-small text-color-white">Professionals</p>
         </div>
-      </div>
+      </div> -->
       <div data-w-id="338eebd3-fef1-158a-5f15-b6c0e0850c60" style="opacity:0">
         <a href="contact.php#contact-form" class="primary-button-white-color primary-shadow w-button">Get Started Now</a>
       </div>

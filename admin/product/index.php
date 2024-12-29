@@ -36,8 +36,6 @@ if (isset($_POST["addbtn"])) {
             // Insert data into database
             $title = $_POST["ptitle"];
             $title = str_replace("'", "\'", $title);
-            $pstitle = $_POST["pstitle"];
-            $pstitle = str_replace("'", "\'", $pstitle);
             $desc = $_POST["pdesc"];
             $category = $_POST["pcategory"];
             $category = str_replace("'", "\'", $category);
@@ -75,8 +73,6 @@ if(isset($_POST["editbtn"]))
             // Insert data into database
             $title = $_POST["edit_ptitle"];
             $title = str_replace("'", "\'", $title);
-            $pstitle = $_POST["edit_pstitle"];
-            $pstitle = str_replace("'", "\'", $pstitle);
             $desc = $_POST["edit_pdesc"];
             $category = $_POST["edit_pcategory"];
             $category = str_replace("'", "\'", $category);
@@ -84,7 +80,7 @@ if(isset($_POST["editbtn"]))
             $imgUrl = $up->getPath(); // Complete URL of the image 
             $imgUrl = str_replace("../", "", $imgUrl);
             $status = 1;
-            $query = "UPDATE product_master SET ptitle='" . $title . "',pstitle='" . $pstitle . "', pdesc='" . $desc . "', pcategory='".$category."', img='" . $imgUrl . "' WHERE id=".$_POST["product_id"]." ";
+            $query = "UPDATE product_master SET ptitle='" . $title . "',pdesc='" . $desc . "', category='".$category."', img='" . $imgUrl . "' WHERE id=".$_POST["product_id"]." ";
             $rs = mysqli_query($con, $query);
 
 
@@ -159,63 +155,74 @@ if(isset($_GET["id"]) && isset($_GET["d"]) && $_GET["d"]==1)
 
     <!-- Add Product Modal -->
     <div class="modal fade" id="ProductAddModal" tabindex="-1" aria-labelledby="ProductAddModalLabel" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="ProductAddModalLabel">Add New Product</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Form -->
-                    <form action="./index.php" method="POST" enctype="multipart/form-data">
-                        <div class="mb-3">
-                            <label for="ptitle" class="form-label">Product Title</label>
-                            <input type="text" class="form-control" id="ptitle" name="ptitle" placeholder="Product Title" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="pstitle" class="form-label">Product Sub-title</label>
-                            <input type="text" class="form-control" id="pstitle" name="pstitle" placeholder="Product Sub Title" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="pdesc" class="form-label">Product Description</label>
-                            <textarea class="form-control" id="pdesc" name="pdesc" placeholder="Product Description" required></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="validationValidSelect1">Drone Category</label>
-                            <select class="form-select is-valid" id="validationValidSelect1" name="pcategory">
-                                <option value="none">Choose category</option>
-                                <option value="agriculture">Agriculture</option>
-                                <option value="enterprice">Enterprice</option>
-                                <option value="defence">Defence</option>
-                                </select>
-                            </div>
-
-
-                        <div class="mb-3">
-                            <label for="file" class="form-label">Upload Image</label>
-                            <input type="file" class="form-control" id="file" name="file" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary" name="addbtn">Add Product</button>
-                    </form>
-                    <!-- End Form -->
-                </div>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ProductAddModalLabel">Add New Product</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Form -->
+                <form action="./index.php" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="ptitle" class="form-label">Product Title</label>
+                        <input type="text" class="form-control" id="ptitle" name="ptitle" placeholder="Product Title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pdesc" class="form-label">Product Description</label>
+                        <textarea class="form-control" id="pdesc" name="pdesc" placeholder="Product Description" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" class="form-control" id="price" name="price" placeholder="Product Price" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Product Category</label>
+                        <select class="form-select" id="category" name="category" required>
+                            <option value="">Choose category</option>
+                            <option value="agriculture">Agriculture</option>
+                            <option value="enterprise">Enterprise</option>
+                            <option value="defence">Defence</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="file" class="form-label">Upload Image</label>
+                        <input type="file" class="form-control" id="file" name="img" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pdate" class="form-label">Date</label>
+                        <input type="datetime-local" class="form-control" id="pdate" name="pdate" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select class="form-select" id="status" name="status" required>
+                            <option value="">Choose status</option>
+                            <option value="1">Active</option>
+                            <option value="0">Inactive</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="addbtn">Add Product</button>
+                </form>
+                <!-- End Form -->
             </div>
         </div>
     </div>
+    </div>
+
     <!-- End Add Product Modal -->
 
     <!-- Edit Product Modals -->
     <!-- Edit Product Modals -->
-<?php
+    <?php
 
-$rs = mysqli_query($con, "select * from product_master where status=1 order by id desc;");
+$rs = mysqli_query($con, "SELECT * FROM product_master WHERE status=1 ORDER BY id DESC;");
 while ($data = mysqli_fetch_assoc($rs)) {
 ?>
-    <div class="modal fade" id="editProductModal<?php echo $data['id']; ?>" tabindex="-1" aria-labelledby="editProductModalLabel" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="editProductModal<?php echo $data['id']; ?>" tabindex="-1" aria-labelledby="editProductModalLabel<?php echo $data['id']; ?>" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editProductModalLabel">Edit Product</h5>
+                    <h5 class="modal-title" id="editProductModalLabel<?php echo $data['id']; ?>">Edit Product</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -223,29 +230,21 @@ while ($data = mysqli_fetch_assoc($rs)) {
                     <form action="./index.php" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="product_id" value="<?php echo $data['id']; ?>">
                         <div class="mb-3">
-                            <label for="edit_ptitle" class="form-label">Product Title</label>
-                            <input type="text" class="form-control" id="edit_ptitle" name="edit_ptitle" value="<?php echo $data['ptitle']; ?>" required>
+                            <label for="edit_ptitle_<?php echo $data['id']; ?>" class="form-label">Product Title</label>
+                            <input type="text" class="form-control" id="edit_ptitle_<?php echo $data['id']; ?>" name="edit_ptitle" value="<?php echo $data['ptitle']; ?>" required>
                         </div>
                         <div class="mb-3">
-                            <label for="edit_pstitle" class="form-label">Product Sub-title</label>
-                            <input type="text" class="form-control" id="edit_pstitle" name="edit_pstitle" value="<?php echo $data['pstitle']; ?>" required>
+                            <label for="edit_pdesc_<?php echo $data['id']; ?>" class="form-label">Product Description</label>
+                            <textarea class="form-control" id="edit_pdesc_<?php echo $data['id']; ?>" name="edit_pdesc" required><?php echo $data['pdesc']; ?></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="edit_pdesc" class="form-label">Product Description</label>
-                            <textarea class="form-control" id="edit_pdesc" name="edit_pdesc" placeholder="Product Description" required><?php echo $data['pdesc']; ?></textarea>
+                            <label for="edit_category_<?php echo $data['id']; ?>" class="form-label">Product Category</label>
+                            <input type="text" class="form-control" id="edit_category_<?php echo $data['id']; ?>" name="edit_category" value="<?php echo $data['category']; ?>" required>
                         </div>
                         <div class="mb-3">
-                            <label for="validationValidSelect1">Drone Category</label>
-                            <select class="form-select is-valid" id="validationValidSelect1" name="edit_pcategory">
-                                <option value="none">Choose category</option>
-                                <option value="agriculture">Agriculture</option>
-                                <option value="enterprises">Enterprises</option>
-                                <option value="defence">Defence</option>
-                                </select>
-                            </div>
-                        <div class="mb-3">
-                            <label for="edit_file" class="form-label">Upload Image</label>
-                            <input type="file" class="form-control" id="edit_file" name="edit_file">
+                            <label for="edit_file_<?php echo $data['id']; ?>" class="form-label">Upload Image</label>
+                            <input type="file" class="form-control" id="edit_file_<?php echo $data['id']; ?>" name="edit_file">
+                            <small class="form-text text-muted">Leave empty if you don't want to change the image.</small>
                         </div>
                         <button type="submit" class="btn btn-primary" name="editbtn">Save Changes</button>
                     </form>
@@ -257,6 +256,7 @@ while ($data = mysqli_fetch_assoc($rs)) {
 <?php
 }
 ?>
+
 <!-- End Edit Product Modals -->
 
     <!-- Card -->
@@ -302,50 +302,61 @@ while ($data = mysqli_fetch_assoc($rs)) {
 
         <!-- Table -->
         <div class="table-responsive datatable-custom position-relative">
-            <table id="datatable" class="table table-lg table-borderless table-thead-bordered table-nowrap table-align-middle card-table" data-hs-datatables-options='{"columnDefs":[{"targets":[0, 6],"orderable":false}],"order":[],"info":{"totalQty":"#datatableWithPaginationInfoTotalQty"},"search":"#datatableSearch","entries":"#datatableEntries","pageLength":15,"isResponsive":false,"isShowPaging":false,"pagination":"datatablePagination"}'>
-                <thead class="thead-light">
-                    <tr>
-                        <th class="table-column-pe-0">ID</th>
-                        <th class="table-column-ps-0">Product Name</th>
-                        <th>Caption</th>
-                        <th>Description</th>
-                        <th>Category </th>
-                        <th>Image</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $rs = mysqli_query($con, "select * from product_master where status=1 order by id desc;");
-                    $c = 1;
-                    while ($data = mysqli_fetch_assoc($rs)) {
-                        echo '
-                        <tr>
-                            <td class="table-column-pe-0">' . $c . '</td>
-                            <td class="table-column-ps-0">
-                                <a class="d-flex align-items-center" href="fields.php?id='.$data["id"].'" >
-                                    <div class="ms-3">
-                                        <span class="d-block h5 text-inherit mb-0">' . $data["ptitle"] . '</span>
-                                    </div>
-                                </a>
-                            </td>
-                            <td><span class="d-block h5 mb-0">' . $data["pstitle"] . '</span></td>
-                            <td style="width:30%; word-wrap: break-word; white-space:pre-wrap;">' . $data["pdesc"] . '</td>
-                            <td>'.$data["pcategory"].'</td>
-                            <td><a href="../' . $data["img"] . '" target="_blank" rel="noopener noreferrer">Image Link</a></td>
-                            <td>
-                                <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editProductModal' . $data['id'] . '">
-                                    <i class="bi-pencil-fill me-1"></i> Edit
-                                </button>
-                                <a class="btn btn-danger btn-sm" href="index.php?id='.$data["id"].'&d=1">Delete</a>
-                            </td>
-                        </tr>';
-                        $c++;
-                    }
-                    ?>
-                </tbody>
-            </table>
-        </div>
+    <table id="datatable" class="table table-lg table-borderless table-thead-bordered table-nowrap table-align-middle card-table" data-hs-datatables-options='{
+        "columnDefs":[{"targets":[0, 6],"orderable":false}],
+        "order":[],
+        "info":{"totalQty":"#datatableWithPaginationInfoTotalQty"},
+        "search":"#datatableSearch",
+        "entries":"#datatableEntries",
+        "pageLength":15,
+        "isResponsive":false,
+        "isShowPaging":false,
+        "pagination":"datatablePagination"
+    }'>
+        <thead class="thead-light">
+            <tr>
+                <th class="table-column-pe-0">ID</th>
+                <th class="table-column-ps-0">Product Name</th>
+                <!-- <th>Caption</th> -->
+                <th>Description</th>
+                <th>Category</th>
+                <th>Image</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            // Fetch data from the database
+            $rs = mysqli_query($con, "SELECT * FROM product_master WHERE status=1 ORDER BY id DESC;");
+            $c = 1;
+            while ($data = mysqli_fetch_assoc($rs)) {
+                echo '
+                <tr>
+                    <td class="table-column-pe-0">' . $c . '</td>
+                    <td class="table-column-ps-0">
+                        <a class="d-flex align-items-center" href="fields.php?id=' . $data["id"] . '">
+                            <div class="ms-3">
+                                <span class="d-block h5 text-inherit mb-0">' . htmlspecialchars($data["ptitle"]) . '</span>
+                            </div>
+                        </a>
+                    </td>
+                     <td><span class="d-block h5 mb-0">' . htmlspecialchars($data["pdesc"]) . '</span></td>
+                    <td style="width:30%; word-wrap: break-word; white-space: pre-wrap;">' . htmlspecialchars($data["category"]) . '</td>
+                    <td><a href="../' . htmlspecialchars($data["img"]) . '" target="_blank" rel="noopener noreferrer">Image Link</a></td>
+                    <td>
+                        <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editProductModal' . $data['id'] . '">
+                            <i class="bi-pencil-fill me-1"></i> Edit
+                        </button>
+                        <a class="btn btn-danger btn-sm" href="index.php?id=' . $data["id"] . '&d=1" onclick="return confirm(\'Are you sure you want to delete this product?\');">Delete</a>
+                    </td>
+                </tr>';
+                $c++;
+            }
+            ?>
+        </tbody>
+    </table>
+</div>
+
         <!-- End Table -->
 
         <!-- Footer -->

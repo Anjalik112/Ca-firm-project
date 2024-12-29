@@ -103,8 +103,9 @@ if(isset($_GET["id"]))
                 <th>Phone No</th>
                 <th>Date-Time</th>
                 <th>Message</th>
-                <th>Action</th>
-               
+                <th>Location</th>
+                <th>Product Name</th>
+                <th>Action</th>              
               </tr>
             </thead>
 
@@ -133,6 +134,8 @@ if(isset($_GET["id"]))
                 <td>'.$data["phone_no"].'</td>
                 <td>'.$data["req_date_time"].'</td>
                 <td style="width:30%; word-wrap: break-word; white-space:pre-wrap;">'.$data["msg"].'</td>
+                <td>' . htmlspecialchars($data["location"]) . '</td>
+                <td>' . htmlspecialchars($data["p_name"]) . '</td>
                 <td>
                   ';
                   if($data["status"]==1)
@@ -156,8 +159,9 @@ if(isset($_GET["id"]))
                   }
                 
 
-                echo '
+                  echo '
                   </td>
+                  
               </tr>
                     ';
                     $c++;
