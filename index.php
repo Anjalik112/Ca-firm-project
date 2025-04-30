@@ -1,36 +1,57 @@
 <?php include 'header.php'; ?>
-<section class="section banner-full-height">
-    <div class="image-overlay"></div>
-        <div class="background-video" style="background-image: url('assets/img/main-bg.jpg'); background-size: cover; background-position: center;">
-        <img src="assets/img/main-bg.jpg" alt="Background Image" style="width: 100%; height: auto; object-fit: cover; display: block;">
+<section class="section banner-full-height" style="position: relative; width: 100%; height: 80vh; overflow: hidden;">
+    <div class="image-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3); z-index: 1;"></div>
+
+    <!-- Carousel Container -->
+    <div class="carousel-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 80vh; overflow: hidden; z-index: 2;">
+        <div class="carousel" style="display: flex; width: 300%; height: 100%; animation: slide 16s infinite ease-in-out;">
+            <div class="slide" style="flex: 0 0 100%; height: 100%; position: relative;">
+                <a href="product.php" style="position: absolute; width: 100%; height: 100%; z-index: 3;"></a>
+                <img src="assets/img/main_image.png" alt="Slide 1"
+                     style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="slide" style="flex: 0 0 100%; height: 100%; position: relative;">
+                <a href="product.php" style="position: absolute; width: 100%; height: 100%; z-index: 3;"></a>
+                <img src="assets/img/1.jpg" alt="Slide 2"
+                     style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="slide" style="flex: 0 0 100%; height: 100%; position: relative;">
+                <a href="product.php" style="position: absolute; width: 100%; height: 100%; z-index: 3;"></a>
+                <img src="assets/img/2.jpg" alt="Slide 2"
+                     style="width: auto; object-fit: cover;">
+            </div>
+            <div class="slide" style="flex: 0 0 100%; height: 100%; position: relative;">
+                <a href="product.php" style="position: absolute; width: 100%; height: 100%; z-index: 3;"></a>
+                <img src="assets/img/3.jpg" alt="Slide 2"
+                     style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="slide" style="flex: 0 0 100%; height: 100%; position: relative;">
+                <a href="product.php" style="position: absolute; width: 100%; height: 100%; z-index: 3;"></a>
+                <img src="assets/img/4.jpg" alt="Slide 2"
+                     style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="slide" style="flex: 0 0 100%; height: 100%; position: relative;">
+                <a href="product.php" style="position: absolute; width: 100%; height: 100%; z-index: 3;"></a>
+                <img src="https://res.cloudinary.com/divx76o18/image/upload/c_limit,w_1600/f_auto/q_auto/v1734937199/n2_degassing_machine_web_banner_1600x600_010720241113_sg-01_dhyvg7?_a=BAVAcNAO0"
+                     style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
         </div>
-      <div class="w-layout-blockcontainer base-container w-container">
-        <div class="full-width"><div class="banner-left-block">
-          <h1 data-w-id="338eebd3-fef1-158a-5f15-b6c0e0850c4c" style="opacity:0" class="text-color-white">Your logistics partner of the future
-          </h1>
-          <p data-w-id="338eebd3-fef1-158a-5f15-b6c0e0850c4e" style="opacity:0" class="text-color-white width-medium">We specialize in revolutionizing logistics for businesses worldwide. Our comprehensive solutions ensure seamless supply chain management, from warehousing to distribution.
-          </p>
-        <!-- <div class="banner-numbers-wrapper large-width">
-        <div data-w-id="338eebd3-fef1-158a-5f15-b6c0e0850c51" style="opacity:0" class="number-item line-tablet-width-medium">
-          <div class="number-text medium-size-text-white">4K+</div>
-          <p class="paragraph-small text-color-white">Satisfied clients</p>
-        </div>
-        <div data-w-id="338eebd3-fef1-158a-5f15-b6c0e0850c56" style="opacity:0" class="number-item line-tablet-width-medium">
-          <div class="number-text medium-size-text-white">250+</div>
-          <p class="paragraph-small text-color-white">Trusted partners</p>
-        </div>
-        <div data-w-id="338eebd3-fef1-158a-5f15-b6c0e0850c5b" style="opacity:0" class="number-item">
-          <div class="number-text medium-size-text-white">300</div>
-          <p class="paragraph-small text-color-white">Professionals</p>
-        </div>
-      </div> -->
-      <div data-w-id="338eebd3-fef1-158a-5f15-b6c0e0850c60" style="opacity:0">
-        <a href="contact.php#contact-form" class="primary-button-white-color primary-shadow w-button">Get Started Now</a>
-      </div>
     </div>
-  </div>
-  </div>
-    </section>
+
+    <!-- Animation -->
+    <style>
+        @keyframes slide {
+            0%, 20% { transform: translateX(0); }
+            25%, 45% { transform: translateX(-100%); }
+            50%, 70% { transform: translateX(-200%); }
+            75%, 100% { transform: translateX(0); }
+        }
+    </style>
+</section>
+
+
+
+
     <div data-w-id="d3be7d34-9203-725a-eb12-9f340739da82" style="width:0%" class="line-divider-no-space"></div>
     <div data-w-id="db15c4f0-bbf1-ef8f-257c-7f2693c0731d" style="width:0%" class="line-divider-no-space"></div>
     <section class="section overflow-hidden">
@@ -38,7 +59,7 @@
       <div class="display-flex-horizontal align-start-large-gap">
         <div class="text-wrapper-right-xlarge-width medium-width">
           <h2 data-w-id="f723d49d-57ec-40af-715b-225b213e645a" style="opacity:0" class="gradient-title-top title-bottom-space">
-            We’re more than logistics—we’re your dedicated partners in supply chain success.
+            Welcome to Causeway Exim,
           </h2>
           <p data-w-id="f723d49d-57ec-40af-715b-225b213e645c" style="opacity:0" class="margin-bottom-medium">
             Roadtrack is dedicated to unlocking your business&#x27;s full potential by addressing challenges that hinder supply chain efficiency, profitability, and sustainability. Let us unravel logistics complexities and guide you towards a brighter future with confidence.
@@ -47,51 +68,17 @@
             <a href="/solutions-1" class="secondary-button w-button">Learn More</a>
           </div>
         </div>
-        <div class="block-right-wrapper">
-          <div data-w-id="a7ea0ed3-3b77-151b-c58e-dcb853b32b65" style="opacity:0" class="cards-item line-full-width">
-            <div class="cards-icon-holder">
-              <img src="https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533d6c_transfer.svg" loading="lazy" width="34" height="34" alt="" class="cards-icon"/>
-            </div>
-            <div class="cards-info-wrapper">
-              <h4>Streamlined Supply Chain Management</h4>
-              <p class="paragraph-small">
-                We optimize every step of your supply chain, from sourcing to delivery,.
-              </p>
-            </div>
-          </div>
-          <div data-w-id="5623548f-27b3-c6d6-311b-c5dd83cee834" style="opacity:0" class="cards-item line-full-width">
-            <div class="cards-icon-holder">
-              <img src="https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533d67_pie%20chart.svg" loading="lazy" width="34" height="34" alt="" class="cards-icon"/>
-            </div>
-            <div class="cards-info-wrapper">
-              <h4>Global Reach, Local Expertise</h4>
-              <p class="paragraph-small">
-                With a network and local expertise, we simplify international logistics.
-              </p>
-            </div>
-          </div>
-          <div data-w-id="641782b6-6366-24be-cad3-f9a452f5e3ee" style="opacity:0" class="cards-item line-full-width">
-            <div class="cards-icon-holder">
-              <img src="https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533d65_shield.svg" loading="lazy" width="34" height="34" alt="" class="cards-icon"/>
-            </div>
-            <div class="cards-info-wrapper">
-              <h4>Reliable Partnerships</h4>
-              <p class="paragraph-small">
-                Count on us for reliable partnerships and dedicated support. 
-              </p>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
     <div class="section-top-space">
       <div class="base-container">
         <div class="full-width">
           <div class="text-wrapper-right-large-width">
-            <h2 data-w-id="663f43a5-59b4-15d6-4781-c0d7604f3256" style="opacity:0" class="gradient-title-top title-bottom-space">How we can help you
+            <h2 data-w-id="663f43a5-59b4-15d6-4781-c0d7604f3256" style="opacity:0" class="gradient-title-top title-bottom-space">Our Products and Services
             </h2>
             <p data-w-id="663f43a5-59b4-15d6-4781-c0d7604f3258" style="opacity:0" class="margin-bottom-medium space">
-              Our goal is to empower seamless global logistics through innovative solutions that drive efficiency and reliability in supply chain management. 
+              We offer a wide range of logistics solutions that cater to your unique business needs. Our services are designed to streamline your supply chain, reduce costs, and improve efficiency. 
             </p>
           </div>
         </div>
@@ -108,10 +95,10 @@
                     </a>
                     <div class="w-layout-vflex bottom-solution-wrapp">
                       <a href="/solutions/supporting-businesses-worldwide" class="title-hover medium">
-                        Supporting Businesses Worldwide
+                        Tissue Paper
                       </a>
                       <p class="description-height-medium">
-                        Discover how logistics solutions can empower small businesses globally, leveling the playing field and unlocking growth opportunities.
+                        
                       </p>
                     </div>
                   </div>
@@ -121,10 +108,10 @@
                     </a>
                     <div class="w-layout-vflex bottom-solution-wrapp">
                       <a href="/solutions/empowering-seamless-logistics" class="title-hover medium">
-                        Empowering Seamless Logistics
+                        Paper Cup
                       </a>
                       <p class="description-height-medium">
-                        Our mission is to empower seamless global logistics through innovative solutions that drive efficiency, reliability.
+                        
                       </p>
                     </div>
                   </div>
@@ -134,7 +121,7 @@
                     </a>
                     <div class="w-layout-vflex bottom-solution-wrapp">
                       <a href="/solutions/enabling-global-trade" class="title-hover medium">
-                        Enabling Global Trade
+                        Packaging Box
                       </a>
                       <p class="description-height-medium">
                         Our mission is to enable seamless global trade through innovative logistics solutions that drive efficiency, reliability, and sustainability.
@@ -200,22 +187,7 @@
     </div>
     <div class="box-shadows position-02"></div>
     <div class="box-shadows position-03"></div>
-    <div class="section-top-space full-width">
-      <div data-w-id="3e219926-62a4-5d28-118b-649b99ba3ddb" class="text-wrapper-loop">
-        <div class="text-holder-loop">
-          <div class="text-item-loop home-3-text-loop">
-            <div class="text-loop">
-              Why choose us  Why choose us Why choose us  Why choose us Why choose us  Why choose us
-            </div>
-          </div>
-          <div style="-webkit-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="text-item-loop">
-            <div class="text-loop">
-              Why choose us  Why choose us Why choose us  Why choose us Why choose us  Why choose us
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
     <div class="w-layout-blockcontainer base-container w-container">
       <div class="display-flex-horizontal desktop-wrap">
         <div data-w-id="37e78899-aac1-54af-a085-0ba727473d34" style="opacity:0" class="block-half-width">
@@ -416,47 +388,6 @@
         </div>
       </div>
     </section>
-    <section class="section black-bg-no-top-space">
-      <div class="w-layout-blockcontainer base-container w-container">
-        <div data-w-id="324a484b-40b2-42e7-2c6d-d49339370be9" style="opacity:0" class="full-width margin-bottom-large">
-          <div class="title-width-large tablet-size-small">
-            <h2 class="gradient-title-white">
-              We go beyond being just a company, we are 
-              <span class="text-span-image">largete</span>
-              a community of passionate individuals united by a common purpose.
-            </h2>
-          </div>
-        </div>
-        </div>
-      </section>
-    <!-- <section class="black-background">
-      <div class="top-cta-wrapper no-negative-space">
-        <div class="w-layout-blockcontainer base-container w-container">
-          <div class="top-cta-content-wrapper">
-            <div class="top-cta-content-wrapper-left center">
-              <h2 data-w-id="3204dff5-900e-42d9-238c-3304ad8532dc" style="opacity:0" class="gradient-title title-bottom-space">
-                Join our team and shape your future
-              </h2>
-              <p data-w-id="3204dff5-900e-42d9-238c-3304ad8532de" style="opacity:0" class="margin-bottom-medium">
-                Discover thrilling career prospects at Logistics now.</p>
-                <div data-w-id="3204dff5-900e-42d9-238c-3304ad8532e0" style="opacity:0">
-                  <a href="/career" class="primary-button w-button">Discover Careers                      
-                  </a>
-                </div>
-              </div>
-              <div class="top-cta-right-wrapper">
-                <div class="top-cta-images-holder no-negative-space">
-                  <img src="https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533dd3_pexels-tiger-lily-4484077.webp" loading="lazy" data-w-id="3204dff5-900e-42d9-238c-3304ad8532e5" sizes="(max-width: 479px) 87vw, (max-width: 767px) 45vw, (max-width: 991px) 30vw, (max-width: 1279px) 17vw, (max-width: 1439px) 208.890625px, (max-width: 1919px) 209.2734375px, 197.3046875px" alt="photo of a company employee" srcset="https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533dd3_pexels-tiger-lily-4484077.webp 500w, https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533dd3_pexels-tiger-lily-4484077.webp 800w, https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533dd3_pexels-tiger-lily-4484077.webp 1080w, https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533dd3_pexels-tiger-lily-4484077.webp 1280w" class="carrer-image"/>
-                  <img src="https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533dc9_pexels-artempodrez-5025517.webp" loading="lazy" data-w-id="3204dff5-900e-42d9-238c-3304ad8532e6" sizes="(max-width: 479px) 87vw, (max-width: 767px) 45vw, (max-width: 991px) 30vw, (max-width: 1279px) 17vw, (max-width: 1439px) 208.890625px, (max-width: 1919px) 209.2734375px, 197.3046875px" alt="photo of a company employee" srcset="https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533dc9_pexels-artempodrez-5025517.webp 500w, https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533dc9_pexels-artempodrez-5025517.webp 640w" class="carrer-image xlarge-height"/>
-                </div>
-                <div class="bottom-cta-images-holder">
-                  <img src="https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533df1_pexels-kampus-7843959%20(1).webp" loading="lazy" data-w-id="3204dff5-900e-42d9-238c-3304ad8532e8" sizes="(max-width: 479px) 87vw, (max-width: 767px) 28vw, (max-width: 991px) 29vw, (max-width: 1279px) 16vw, (max-width: 1439px) 202.3671875px, (max-width: 1919px) 202.734375px, 233.171875px" alt="photo of a company employee" srcset="https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533df1_pexels-kampus-7843959%20(1).webp 500w, https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533df1_pexels-kampus-7843959%20(1).webp 800w, https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533df1_pexels-kampus-7843959%20(1).webp 1080w, https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533df1_pexels-kampus-7843959%20(1).webp 1279w" class="carrer-image medium-width"/>
-                  <img src="https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533d75_pexels-tima-miroshnichenko-6169161.webp" loading="lazy" data-w-id="3204dff5-900e-42d9-238c-3304ad8532e9" sizes="(max-width: 479px) 87vw, (max-width: 767px) 28vw, (max-width: 991px) 29vw, (max-width: 1279px) 16vw, (max-width: 1439px) 202.3671875px, (max-width: 1919px) 202.734375px, 197.3046875px" alt="worker at work" srcset="https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533d75_pexels-tima-miroshnichenko-6169161.webp 500w, https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533d75_pexels-tima-miroshnichenko-6169161.webp 640w" class="carrer-image medium-height"/>
-                  <img src="https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533df0_pexels-tiger-lily-4484071.webp" loading="lazy" data-w-id="3204dff5-900e-42d9-238c-3304ad8532ea" sizes="(max-width: 479px) 87vw, (max-width: 767px) 28vw, (max-width: 991px) 29vw, (max-width: 1279px) 16vw, (max-width: 1439px) 202.3671875px, (max-width: 1919px) 202.734375px, 233.171875px" alt="photo of a company employee" srcset="https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533df0_pexels-tiger-lily-4484071.webp 500w, https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670bbbeaca382e5aab533df0_pexels-tiger-lily-4484071.webp 640w" class="carrer-image medium-width"/>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    </section> -->
+    
+    
 <?php include 'footer.php'; ?>

@@ -83,6 +83,18 @@ if (isset($_POST["submit"])) {
                     </div>
                 </div>
             </div>
+            <div class="map-box" style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.721923954497!2d75.32655237428!3d19.893960581486393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdb99db36c5df5d%3A0x42b35cdbd96ec21!2sAurangabad%20Smart%20City%20Development%20Corporation%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1731149709269!5m2!1sen!2sin"
+                    width="80%"
+                    height="500"
+                    style="border: 0; border-radius: 15px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); max-width: 100%;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
             <div class="w-layout-blockcontainer base-container w-container">
                 <div class="map-holder spacing">
                     <div class="contacts-wrapper">
@@ -126,7 +138,7 @@ if (isset($_POST["submit"])) {
             </div>
         </section>
       
-    <section class="section black-bg-bottom-space-small">
+    <!-- <section class="section black-bg-bottom-space-small">
             <div class="w-layout-blockcontainer base-container w-container">
                 <div class="margin-bottom-medium desktop-large">
                     <h2 data-w-id="6853e56c-18ac-b6af-67a3-4b29d6dd1464" class="text-color-white gradient-title-white">The most common questions</h2>
@@ -194,7 +206,7 @@ if (isset($_POST["submit"])) {
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <script>
     document.querySelectorAll('.accordion-toggle-medium').forEach(toggle => {

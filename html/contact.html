@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Causeway EXIM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+</head>
+<style>
+  body {
+    font-family: 'Lato', sans-serif;
+  }
+</style>
+<body class="bg-[#00522E]">
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+  
+    /* Prevent extra space around the navbar */
+    .navbar {
+      margin: 0;  /* Reset margin */
+      padding: 0;  /* Reset padding */
+    }
+  </style>
+  
+  <!-- Navbar -->
+<nav id="navbar" class="fixed w-full z-50 top-0 left-0 transition-all duration-300 bg-transparent">
+  <div class="max-w-7xl mx-auto flex items-center justify-between py-6 px-4">
+    <div class="text-[#00522E] text-3xl font-bold">
+      Causeway EXIM
+    </div>
+    <div class="hidden md:flex gap-8 ">
+      <a href="index.html#home" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Home</a>
+      <a href="about.html" target="_blank" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">About</a>
+      <a href="index.html#products" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Products</a>
+      
+      
+      <div x-data="{ open: false }" class="relative">
+        <!-- Services Button -->
+        <button @mouseenter="open = true" @mouseleave="open = false" class="text-[#00522E] font-bold text-lg">
+          Services
+        </button>
+      
+        <!-- Dropdown Menu -->
+        <div x-show="open" x-transition class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md"
+             @mouseenter="open = true" @mouseleave="open = false">
+          <a href="index.html#service" class="block px-4 py-2 text-gray-800 hover:bg-[#E3F5F2]">Service</a>
+          <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-[#E3F5F2]">Innovation</a>
+          <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-[#E3F5F2]">Quality</a>
+        </div>
+      </div>
+      
+      
+
+      <!-- Blog Button -->
+      <a href="index.html#blogs" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Blogs</a>
+      <a href="contact.html"  class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Contact</a>
+    </div>
+
+    <!-- Mobile Menu Toggle Button -->
+    <div class="md:hidden flex items-center">
+      <button @click="open = !open" class="text-[#00522E] focus:outline-none" x-data="{ open: false }" x-on:click="$dispatch('toggle')">
+        <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div x-data="{ open: false }" @toggle.window="open = !open">
+  <div x-show="open" class="md:hidden bg-black/90 backdrop-blur-md flex flex-col items-center space-y-6 py-6">
+    <a href="#" class="text-white text-lg">Home</a>
+    <a href="#" class="text-white text-lg">About</a>
+    <a href="#" class="text-white text-lg">Products</a>
+    <a href="#" class="text-white text-lg">Contact</a>
+    <a href="#" class="text-white text-lg">Blogs</a>
+  </div>
+</div>
+
+<script>
+    const navbarProductPage = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbarProductPage.classList.add('bg-[#ffffff]');  // Background color when scrolled
+    navbarProductPage.classList.remove('bg-transparent');
+  } else {
+    navbarProductPage.classList.remove('bg-[#ffffff]');
+    navbarProductPage.classList.add('bg-transparent');
+  }
+});
+
+</script>
+
+  
+  
+
+
+<!-- ==================== About Section ==================== -->
+<section id="about" class="bg-[#E3F5F2] min-h-[70vh] pt-24 flex items-center px-4 md:px-8 lg:px-16 py-12 md:py-20 text-white">
+  <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <!-- Your content here -->
+    <!-- Your content here -->
+  
+
+    <!-- Image Block -->
+    <div class="flex justify-center">
+      <img src="https://images.unsplash.com/photo-1589187155478-1c1e6d46d1f2?auto=format&fit=crop&w=600&q=80" 
+           alt="About product" 
+           class="rounded-xl shadow-xl w-full max-w-sm object-cover">
+    </div>
+
+    <!-- Text Block -->
+    <div>
+      <h2 class="text-3xl md:text-5xl font-bold text-[#00522E] mb-4">
+        Let’s Make Your Day Better Together
+      </h2>
+      <p class="text-yellow-900 font-semibold text-lg mb-4">
+        30+ Years of working experience in packaging product manufacturing
+      </p>
+      <p class="text-[#00522E] mb-6 text-base md:text-lg">
+        We offer a wide range of packaging materials like paper cups, paper bowls, plastic plates, and eco-friendly alternatives.
+      </p>
+      <ul class="space-y-3 text-[#00522E] font-medium text-base md:text-lg">
+        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Best quality products</li>
+        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Eco-friendly packaging</li>
+        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Trusted by 1000+ clients</li>
+        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Affordable pricing</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== contact Section ==================== -->
+<section id="contact" class="min-h-screen bg-[#F5F5F4] px-4 py-16 md:px-12 lg:px-24 flex flex-col justify-center">
+  <div class="max-w-7xl mx-auto text-center mb-16">
+    <p class="text-yellow-500 font-semibold uppercase tracking-wider text-sm">Get In Touch</p>
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Contact Us</h2>
+  </div>
+
+  <div class="max-w-7xl mx-auto">
+    <form action="#" method="POST" class="bg-white p-8 shadow-lg rounded-xl">
+      <!-- Full Name -->
+      <div class="mb-6">
+        <label for="name" class="block text-lg font-medium text-gray-700">Full Name</label>
+        <input type="text" id="name" name="name" required placeholder="Your Full Name"
+          class="mt-2 w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00522E] focus:border-[#00522E]">
+      </div>
+
+      <!-- Email Address -->
+      <div class="mb-6">
+        <label for="email" class="block text-lg font-medium text-gray-700">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="Your Email Address"
+          class="mt-2 w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00522E] focus:border-[#00522E]">
+      </div>
+
+      <!-- Phone Number -->
+      <div class="mb-6">
+        <label for="phone" class="block text-lg font-medium text-gray-700">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required placeholder="Your Phone Number"
+          class="mt-2 w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00522E] focus:border-[#00522E]">
+      </div>
+
+      <!-- Message -->
+      <div class="mb-6">
+        <label for="message" class="block text-lg font-medium text-gray-700">Your Message</label>
+        <textarea id="message" name="message" required placeholder="Write your message here..."
+          class="mt-2 w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00522E] focus:border-[#00522E] h-32"></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="mb-6">
+        <button type="submit"
+          class="w-full bg-[#00522E] text-white font-bold py-3 rounded-md hover:bg-[#003e23] focus:outline-none focus:ring-2 focus:ring-[#003e23]">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+
+<!-- Footer -->
+<footer id="contact" class="bg-[#FFFFFF] text-[#00522E] py-10">
+  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+    
+    <!-- Logo & Tagline -->
+    <div>
+      <h2 class="text-2xl font-bold mb-4">
+        <span class="text-yellow-400">Causeway</span> EXIM
+      </h2>
+      <p class="mb-4">Best Quality Disposable <br>Food Packaging Products</p>
+      <div class="flex gap-3 mt-4">
+        <a href="#"><i class="fab fa-twitter text-white text-xl"></i></a>
+        <a href="#"><i class="fab fa-facebook-f text-white text-xl"></i></a>
+        <a href="#"><i class="fab fa-youtube text-white text-xl"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in text-white text-xl"></i></a>
+        <a href="#"><i class="fab fa-instagram text-white text-xl"></i></a>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div>
+      <h3 class="text-lg  text-[#FFC430] font-semibold mb-4">Links</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-yellow-400">About Us</a></li>
+        <li><a href="#" class="hover:text-yellow-400">Our Products</a></li>
+        <li><a href="#" class="hover:text-yellow-400">Blog</a></li>
+        <li><a href="#" class="hover:text-yellow-400">FAQs</a></li>
+        <li><a href="#" class="hover:text-yellow-400">Contacts</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div>
+      <h3 class="text-lg text-[#FFC430] font-semibold mb-4">Contact</h3>
+      <ul class="space-y-2 text-sm">
+        <li class="flex items-start gap-2"><span>📞</span> 1233</li>
+        <li class="flex items-start gap-2"><span>📧</span> xyz@gmail.com</li>
+        <li class="flex items-start gap-2"><span>📍</span>123, abc, india</li>
+      </ul>
+    </div>
+
+    <!-- Email Subscription -->
+    <div>
+      <h3 class="text-lg text-[#FFC430] font-semibold mb-4">Enter Your Email</h3>
+      <p class="text-sm mb-4">Enter your email below, our team will contact you soon.</p>
+      <div class="relative mb-4">
+        <input type="email" placeholder="Email Address" class="w-full px-4 py-2 rounded bg-[#164e2f] text-white border border-gray-700 focus:outline-none" />
+        <button class="absolute right-3 top-1/2 -translate-y-1/2 text-yellow-400 hover:text-white">
+          
+        </button>
+      </div>
+      <label class="flex items-center gap-2 text-sm">
+        <input type="checkbox" class="accent-yellow-400" />
+        I agree to all terms and policies
+      </label>
+    </div>
+  </div>
+</footer>
+
+<!-- Footer Bottom Green Strip -->
+<div class="bg-[#00522E] text-white text-center py-4">
+  <p class="text-sm">© All Copyright 2025 by xyz.com</p>
+</div>
+
+
+<!-- Font Awesome CDN for Icons (Optional) -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+
+
+
+
+<!-- Scroll Script for Navbar -->
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('bg-[#ffffff]');
+      navbar.classList.remove('bg-transparent');
+    } else {
+      navbar.classList.remove('bg-[#ffffff]');
+      navbar.classList.add('bg-transparent');
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Causeway EXIM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+</head>
+<style>
+  body {
+    font-family: 'Lato', sans-serif;
+  }
+</style>
+<body class="bg-[#00522E]">
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+  
+    /* Prevent extra space around the navbar */
+    .navbar {
+      margin: 0;  /* Reset margin */
+      padding: 0;  /* Reset padding */
+    }
+  </style>
+  
+  <!-- Navbar -->
+<nav id="navbar" class="fixed w-full z-50 top-0 left-0 transition-all duration-300 bg-transparent">
+  <div class="max-w-7xl mx-auto flex items-center justify-between py-6 px-4">
+    <div class="text-[#00522E] text-3xl font-bold">
+      Causeway EXIM
+    </div>
+    <div class="hidden md:flex gap-8 ">
+      <a href="html/index.html" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Home</a>
+      <a href="about.html" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">About</a>
+      <a href="#products" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Products</a>
+      
+      
+      <div x-data="{ open: false }" class="relative">
+        <!-- Services Button -->
+        <button @mouseenter="open = true" @mouseleave="open = false" class="text-[#00522E] font-bold text-lg">
+          Services
+        </button>
+      
+        <!-- Dropdown Menu -->
+        <div x-show="open" x-transition class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md"
+             @mouseenter="open = true" @mouseleave="open = false">
+          <a href="#service" class="block px-4 py-2 text-gray-800 hover:bg-[#E3F5F2]">Service</a>
+          <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-[#E3F5F2]">Innovation</a>
+          <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-[#E3F5F2]">Quality</a>
+        </div>
+      </div>
+      
+      
+
+      <!-- Blog Button -->
+      <a href="#blogs" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Blogs</a>
+      <a href="contact.html" target="_blank" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Contact</a>
+    </div>
+
+    <!-- Mobile Menu Toggle Button -->
+    <div class="md:hidden flex items-center">
+      <button @click="open = !open" class="text-[#00522E] focus:outline-none" x-data="{ open: false }" x-on:click="$dispatch('toggle')">
+        <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div x-data="{ open: false }" @toggle.window="open = !open">
+  <div x-show="open" class="md:hidden bg-black/90 backdrop-blur-md flex flex-col items-center space-y-6 py-6">
+    <a href="#" class="text-white text-lg">Home</a>
+    <a href="#" class="text-white text-lg">About</a>
+    <a href="#" class="text-white text-lg">Products</a>
+    <a href="#" class="text-white text-lg">Contact</a>
+    <a href="#" class="text-white text-lg">Blogs</a>
+  </div>
+</div>
+
+<script>
+   const navbarProductPage = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbarProductPage.classList.add('bg-[#ffffff]');  // Background color when scrolled
+    navbarProductPage.classList.remove('bg-transparent');
+  } else {
+    navbarProductPage.classList.remove('bg-[#ffffff]');
+    navbarProductPage.classList.add('bg-transparent');
+  }
+});
+
+</script>
+
+  
+  
+<!-- Hero Section with Different Texts -->
+<section id="home" x-data="{
+  currentSlide: 0,
+  slides: [
+    {
+      img: 'https://images.unsplash.com/photo-1556767576-cfba2f8cf7b7?auto=format&fit=crop&w=1470&q=80',
+      heading: 'We Provide Quality Paper Products',
+      subheading: 'We’ve One Mission to be the Best Paper Products Company.'
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1602526432364-33d29da2fa7b?auto=format&fit=crop&w=1470&q=80',
+      heading: 'Eco-Friendly Solutions',
+      subheading: 'Sustainable paper packaging for a greener future.'
+    },
+    {
+      img: 'https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1470&q=80',
+      heading: 'Innovation in Every Fold',
+      subheading: 'Crafting products that match modern lifestyle needs.'
+    }
+  ],
+  init() {
+    setInterval(() => {
+      this.currentSlide = (this.currentSlide + 1) % this.slides.length
+    }, 3000)
+  }
+}" class="relative w-full h-screen overflow-hidden">
+
+  <!-- Background Images with Zoom-In Effect -->
+  <template x-for="(slide, index) in slides" :key="index">
+    <div x-show="currentSlide === index"
+         x-transition:enter="transition transform duration-[4000ms] ease-in-out"
+         x-transition:enter-start="opacity-0 scale-100"
+         x-transition:enter-end="opacity-100 scale-110"
+         class="absolute inset-0 w-full h-full bg-cover bg-center"
+         :style="'background-image: url(' + slide.img + ')'">
+    </div>
+  </template>
+
+  <!-- Hero Content -->
+  <div class="absolute inset-0 bg-[#E3F5F2] flex flex-col justify-center items-center text-center text-white px-4">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4" x-text="slides[currentSlide].heading"></h1>
+    <p class="text-lg md:text-xl mb-6" x-text="slides[currentSlide].subheading"></p>
+    
+  </div>
+
+  <!-- Dots Navigation -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+    <template x-for="(slide, index) in slides" :key="index">
+      <div @click="currentSlide = index"
+           :class="{'bg-[#00BA68]': currentSlide === index, 'bg-[#00522E]': currentSlide !== index}"
+           class="w-3 h-3 rounded-full cursor-pointer transition-colors duration-300">
+      </div>
+    </template>
+  </div>
+</section>
+
+<!-- ==================== About Section ==================== -->
+<section id="about" class="bg-[#FFFFFF] min-h-[50vh] flex items-center px-4 md:px-8 lg:px-16 py-12 md:py-20 text-white">
+  <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    
+    <!-- Image Block -->
+    <div class="flex justify-center">
+      <img src="https://images.unsplash.com/photo-1589187155478-1c1e6d46d1f2?auto=format&fit=crop&w=600&q=80" 
+           alt="About product" 
+           class="rounded-xl shadow-xl w-full max-w-sm object-cover">
+    </div>
+
+    <!-- Text Block -->
+    <div>
+      <h2 class="text-3xl md:text-5xl font-bold text-[#00522E] mb-4">
+        Let’s Make Your Day Better Together
+      </h2>
+      <p class="text-yellow-900 font-semibold text-lg mb-4">
+        30+ Years of working experience in packaging product manufacturing
+      </p>
+      <p class="text-[#00522E] mb-6 text-base md:text-lg">
+        We offer a wide range of packaging materials like paper cups, paper bowls, plastic plates, and eco-friendly alternatives.
+      </p>
+      <ul class="space-y-3 text-[#00522E] font-medium text-base md:text-lg">
+        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Best quality products</li>
+        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Eco-friendly packaging</li>
+        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Trusted by 1000+ clients</li>
+        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Affordable pricing</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== Products Section ==================== -->
+<section id="products" class="min-h-screen bg-[#F5F5F4] px-4 py-16 md:px-12 lg:px-24 flex flex-col justify-center">
+  <div class="max-w-7xl mx-auto text-center mb-16">
+    <p class="text-yellow-500 font-semibold uppercase tracking-wider text-sm">Products We’re Offering</p>
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Our Products Category</h2>
+  </div>
+
+  <!-- Responsive Grid for Product Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 max-w-7xl mx-auto">
+
+    <!-- Product Card 1 -->
+    <div class="bg-[#E3F5F2] shadow-lg rounded-xl overflow-hidden transform hover:bg-[#00522E] transition duration-300 group cursor-pointer">
+      <!-- Circle Container -->
+      <div class="lg:w-40 lg:h-40 w-24 h-24 bg-neutral-100 group-hover:bg-[#E3F5F2] rounded-full flex items-center justify-center mt-16 mb-4 mx-auto">
+        <!-- Image inside the circle -->
+        <img alt="Icon" loading="lazy" width="48" height="48" src="images/tissue-box.png" class="w-16 h-16 object-cover" />
+      </div>
+    
+      <!-- Product Description -->
+      <div class="p-6">
+        <h3 class="text-xl font-semibold text-[#164e2f] mb-2 transition-colors duration-100 group-hover:text-white">
+          Paper Packaging
+        </h3>
+        <p class="text-[#00522E] text-sm mb-4 group-hover:text-white">
+          We have best quality paper cup, paper plate, paper bowl, paper soup container, paper salad bowl.
+        </p>
+        <a href="product_1.html" target="_blank" class="text-yellow-500 font-bold text-lg hover:underline group-hover:text-white">→</a>
+      </div>
+    </div>
+    
+    <!-- Product Card 2 -->
+    <div class="bg-[#E3F5F2] shadow-lg rounded-xl overflow-hidden transform hover:bg-[#00522E] transition duration-300 group cursor-pointer">
+      <!-- Circle Container -->
+      <div class="lg:w-40 lg:h-40 w-24 h-24 bg-neutral-100 group-hover:bg-[#E3F5F2] rounded-full flex items-center justify-center mt-16 mb-4 mx-auto">
+        <!-- Image inside the circle -->
+        <img alt="Icon" loading="lazy" width="48" height="48" src="images/tissue-box.png" class="w-16 h-16 object-cover" />
+      </div>
+    
+      <!-- Product Description -->
+      <div class="p-6">
+        <h3 class="text-xl font-semibold text-[#164e2f] mb-2 transition-colors duration-100 group-hover:text-white">
+          Paper Packaging
+        </h3>
+        <p class="text-[#00522E] text-sm mb-4 group-hover:text-white">
+          We have best quality paper cup, paper plate, paper bowl, paper soup container, paper salad bowl.
+        </p>
+        <a href="product_2.html" class="text-yellow-500 font-bold text-lg hover:underline group-hover:text-white">→</a>
+      </div>
+    </div>
+
+    <!-- Product Card 3 -->
+    <div class="bg-[#E3F5F2] shadow-lg rounded-xl overflow-hidden transform hover:bg-[#00522E] transition duration-300 group cursor-pointer">
+      <!-- Circle Container -->
+      <div class="lg:w-40 lg:h-40 w-24 h-24 bg-neutral-100 group-hover:bg-[#E3F5F2] rounded-full flex items-center justify-center mt-16 mb-4 mx-auto">
+        <!-- Image inside the circle -->
+        <img alt="Icon" loading="lazy" width="48" height="48" src="images/tissue-box.png" class="w-16 h-16 object-cover" />
+      </div>
+    
+      <!-- Product Description -->
+      <div class="p-6">
+        <h3 class="text-xl font-semibold text-[#164e2f] mb-2 transition-colors duration-100 group-hover:text-white">
+          Paper Packaging
+        </h3>
+        <p class="text-[#00522E] text-sm mb-4 group-hover:text-white">
+          We have best quality paper cup, paper plate, paper bowl, paper soup container, paper salad bowl.
+        </p>
+        <a href="product_3.html" class="text-yellow-500 font-bold text-lg hover:underline group-hover:text-white">→</a>
+      </div>
+    </div>
+    
+    <!-- Product Card 4 -->
+    <div class="bg-[#E3F5F2] shadow-lg rounded-xl overflow-hidden transform hover:bg-[#00522E] transition duration-300 group cursor-pointer">
+      <!-- Circle Container -->
+      <div class="lg:w-40 lg:h-40 w-24 h-24 bg-neutral-100 group-hover:bg-[#E3F5F2] rounded-full flex items-center justify-center mt-16 mb-4 mx-auto">
+        <!-- Image inside the circle -->
+        <img alt="Icon" loading="lazy" width="48" height="48" src="images/tissue-box.png" class="w-16 h-16 object-cover" />
+      </div>
+    
+      <!-- Product Description -->
+      <div class="p-6">
+        <h3 class="text-xl font-semibold text-[#164e2f] mb-2 transition-colors duration-100 group-hover:text-white">
+          Paper Packaging
+        </h3>
+        <p class="text-[#00522E] text-sm mb-4 group-hover:text-white">
+          We have best quality paper cup, paper plate, paper bowl, paper soup container, paper salad bowl.
+        </p>
+        <a href="product_4.html" class="text-yellow-500 font-bold text-lg hover:underline group-hover:text-white">→</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICE SECTION SLIDER WITH FIXED SIDE BUTTONS -->
+<section id="service" class="w-full min-h-[50vh] bg-[#E3F5F2] py-12 px-4" x-data="{
+  tabs: [
+    {
+      title: 'SERVICE',
+      desc: 'Service is our top priority for our customers to experience great products with uncompromised services.',
+      points: [
+        { heading: 'Honesty and Dependability', text: 'Kafka India is a trustworthy food packaging brand. We take care of our customer’s happiness always.' }
+      ],
+      icon: 'https://cdn-icons-png.flaticon.com/512/747/747376.png'
+    },
+    {
+      title: 'INNOVATION',
+      desc: 'We put great efforts in R&D to come up with more innovative products.',
+      points: [
+        { heading: 'We Are Creative', text: 'We create food packaging products: paper, plastic, eco-friendly, and raw materials.' },
+        { heading: 'We are Always Improving', text: 'Our mission is to improve daily, solve problems, and innovate better.' }
+      ],
+      icon: 'https://cdn-icons-png.flaticon.com/512/747/747376.png'
+    },
+    {
+      title: 'QUALITY',
+      desc: 'Our primary focus is to make the best quality products to enrich the customer experience.',
+      points: [
+        { heading: 'We’re Produce Quality Products', text: 'All products of Kafka are made using high quality raw material.' },
+        { heading: 'Quality Commitment', text: 'We’re committed to fulfilling expectations and ensuring your complete satisfaction.' }
+      ],
+      icon: 'https://cdn-icons-png.flaticon.com/512/747/747376.png'
+    }
+  ],
+  currentIndex: 0,
+  next() {
+    this.currentIndex = (this.currentIndex + 1) % this.tabs.length;
+  },
+  prev() {
+    this.currentIndex = (this.currentIndex - 1 + this.tabs.length) % this.tabs.length;
+  },
+ 
+}">
+  <div class="relative w-full max-w-7xl mx-auto overflow-hidden">
+
+    <!-- Slides -->
+    <div class="flex transition-transform duration-700 ease-in-out"
+         :style="`transform: translateX(-${currentIndex * 100}%);`">
+      <template x-for="(tab, i) in tabs" :key="i">
+        <div class="min-w-full flex flex-col md:flex-row items-center justify-between px-4 md:px-10 min-h-[70vh]">
+          <img :src="tab.icon" alt="Service Icon" class="w-full md:w-1/2 max-h-[300px] object-contain mb-6 md:mb-0" />
+          <div class="md:w-1/2 space-y-4 text-center md:text-left">
+            <h2 class="text-3xl font-bold text-black" x-text="tab.title"></h2>
+            <p class="text-gray-700 text-lg" x-text="tab.desc"></p>
+            <template x-for="point in tab.points" :key="point.heading">
+              <div>
+                <h3 class="font-semibold text-lg" x-text="point.heading"></h3>
+                <p class="text-gray-600" x-text="point.text"></p>
+              </div>
+            </template>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <!-- Side Arrows -->
+    <button @click="prev"
+    class="absolute left-1 top-1/2 transform -translate-y-1/2 hover:scale-125 bg-[] text-[#FFC430] hover:text-[#00522E] text-5xl p-1 rounded-md z-10">
+    &#8592;
+</button>
+
+<button @click="next"
+    class="absolute right-1 top-1/2 transform -translate-y-1/2 hover:scale-125 text-[#FFC430] bg- hover:text-[#00522E] text-5xl p-1 rounded-md z-10">
+    &#8594;
+</button>
+
+
+
+  </div>
+</section>
+
+<!-- Alpine.js -->
+<script src="https://unpkg.com/alpinejs" defer></script>
+
+
+
+
+<!-- Our Blogs Section -->
+<section id="blogs" class="w-full min-h-screen bg-[#F5F5F4] py-16 px-4" x-data="{
+  activeTab: 'Latest',
+  blogs: [
+    {
+      category: 'Latest',
+      title: 'Why Logistics is Evolving in 2025',
+      desc: 'A dive into the future of logistics and how new technologies shape the industry...',
+      img: 'https://images.unsplash.com/photo-1573164574393-507b0f2f98d4?fit=crop&w=600&q=80'
+
+      
+    },
+    {
+      category: 'Insights',
+      title: 'Automation & Supply Chain',
+      desc: 'Understanding how automation boosts efficiency in warehouse and transport...',
+      img: 'https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?fit=crop&w=600&q=80'
+    },
+    {
+      category: 'Stories',
+      title: 'Top 5 Global Trade Trends',
+      desc: 'Explore the recent shifts in global trade and what businesses must prepare for...',
+      img: 'https://images.unsplash.com/photo-1581091870627-1ee31f64d9ec?fit=crop&w=600&q=80'
+    }
+  ]
+}">
+  <div class="max-w-7xl mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-12">Our Blogs</h2>
+
+    <!-- Filter Buttons -->
+    <div class="flex justify-center  gap-4 mb-12 flex-wrap">
+      <template x-for="tab in ['Latest', 'Insights', 'Stories']" :key="tab">
+        <button 
+          class="px-6 py-2 rounded-full font-semibold border transition-all duration-300"
+          :class="activeTab === tab ? ' bg-[#00522E] text-white' : 'border-[#FFC430] text-black hover:bg-gray-200'"
+          @click="activeTab = tab"
+          x-text="tab">
+        </button>
+      </template>
+    </div>
+
+    <!-- Blog Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
+      <template x-for="(blog, index) in blogs.filter(b => b.category === activeTab)" :key="index">
+        <div class="bg-[#E3F5F2] rounded-2xl shadow-lg transition-all p-6 flex flex-col h-full transform group hover:bg-[#00522E]">
+          <img :src="blog.img" alt="" class="rounded-xl mb-6 w-full h-60 object-cover" />
+          <h3 class="font-bold text-xl mb-3 text-[#164e2f] group-hover:text-white transition-colors duration-300" x-text="blog.title"></h3>
+          <p class="text-[#4e4e4e] text-sm group-hover:text-white transition-colors duration-300" x-text="blog.desc"></p>
+        </div>
+      </template>
+      <template x-for="(blog, index) in blogs.filter(b => b.category === activeTab)" :key="index">
+        <div class="bg-[#E3F5F2] rounded-2xl shadow-lg transition-all p-6 flex flex-col h-full transform group hover:bg-[#00522E]">
+          <img :src="blog.img" alt="" class="rounded-xl mb-6 w-full h-60 object-cover" />
+          <h3 class="font-bold text-xl mb-3 text-[#164e2f] group-hover:text-white transition-colors duration-300" x-text="blog.title"></h3>
+          <p class="text-[#4e4e4e] text-sm group-hover:text-white transition-colors duration-300" x-text="blog.desc"></p>
+        </div>
+      </template>
+      <template x-for="(blog, index) in blogs.filter(b => b.category === activeTab)" :key="index">
+        <div class="bg-[#E3F5F2] rounded-2xl shadow-lg transition-all p-6 flex flex-col h-full transform group hover:bg-[#00522E]">
+          <img :src="blog.img" alt="" class="rounded-xl mb-6 w-full h-60 object-cover" />
+          <h3 class="font-bold text-xl mb-3 text-[#164e2f] group-hover:text-white transition-colors duration-300" x-text="blog.title"></h3>
+          <p class="text-[#4e4e4e] text-sm group-hover:text-white transition-colors duration-300" x-text="blog.desc"></p>
+        </div>
+      </template> 
+    </div>
+    
+    
+    
+  </div>
+</section>
+
+<!-- Alpine.js -->
+<script src="https://unpkg.com/alpinejs" defer></script>
+<div class=" text-center text-sm border-t border-gray-800 ">
+  
+</div>
+
+<!-- Footer -->
+<footer id="contact" class="bg-[#FFFFFF] text-[#00522E] py-10">
+  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+    
+    <!-- Logo & Tagline -->
+    <div>
+      <h2 class="text-2xl font-bold mb-4">
+        <span class="text-yellow-400">Causeway</span> EXIM
+      </h2>
+      <p class="mb-4">Best Quality Disposable <br>Food Packaging Products</p>
+      <div class="flex gap-3 mt-4">
+        <a href="#"><i class="fab fa-twitter text-white text-xl"></i></a>
+        <a href="#"><i class="fab fa-facebook-f text-white text-xl"></i></a>
+        <a href="#"><i class="fab fa-youtube text-white text-xl"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in text-white text-xl"></i></a>
+        <a href="#"><i class="fab fa-instagram text-white text-xl"></i></a>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div>
+      <h3 class="text-lg  text-[#FFC430] font-semibold mb-4">Links</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-yellow-400">About Us</a></li>
+        <li><a href="#" class="hover:text-yellow-400">Our Products</a></li>
+        <li><a href="#" class="hover:text-yellow-400">Blog</a></li>
+        <li><a href="#" class="hover:text-yellow-400">FAQs</a></li>
+        <li><a href="#" class="hover:text-yellow-400">Contacts</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div>
+      <h3 class="text-lg text-[#FFC430] font-semibold mb-4">Contact</h3>
+      <ul class="space-y-2 text-sm">
+        <li class="flex items-start gap-2"><span>📞</span> 1233</li>
+        <li class="flex items-start gap-2"><span>📧</span> xyz@gmail.com</li>
+        <li class="flex items-start gap-2"><span>📍</span>123, abc, india</li>
+      </ul>
+    </div>
+
+    <!-- Email Subscription -->
+    <div>
+      <h3 class="text-lg text-[#FFC430] font-semibold mb-4">Enter Your Email</h3>
+      <p class="text-sm mb-4">Enter your email below, our team will contact you soon.</p>
+      <div class="relative mb-4">
+        <input type="email" placeholder="Email Address" class="w-full px-4 py-2 rounded bg-[#164e2f] text-white border border-gray-700 focus:outline-none" />
+        <button class="absolute right-3 top-1/2 -translate-y-1/2 text-yellow-400 hover:text-white">
+          
+        </button>
+      </div>
+      <label class="flex items-center gap-2 text-sm">
+        <input type="checkbox" class="accent-yellow-400" />
+        I agree to all terms and policies
+      </label>
+    </div>
+  </div>
+</footer>
+
+<!-- Footer Bottom Green Strip -->
+<div class="bg-[#00522E] text-white text-center py-4">
+  <p class="text-sm">© All Copyright 2025 by xyz.com</p>
+</div>
+
+
+<!-- Font Awesome CDN for Icons (Optional) -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+
+
+
+
+<!-- Scroll Script for Navbar -->
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('bg-[#ffffff]');
+      navbar.classList.remove('bg-transparent');
+    } else {
+      navbar.classList.remove('bg-[#ffffff]');
+      navbar.classList.add('bg-transparent');
+    }
+  });
+</script>
+
+</body>
+</html>

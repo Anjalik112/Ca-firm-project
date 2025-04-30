@@ -28,7 +28,7 @@
       <div class="header-overlay"></div>
       <div class="nav-container w-container">
         <div class="nav-menu-wrapper">
-          <a href="/home-1" aria-current="page" class="brand w-nav-brand w--current">
+          <a href="index.php" aria-current="page" class="brand w-nav-brand w--current">
             <img src="https://cdn.prod.website-files.com/670bbbeaca382e5aab533d12/670f8a9c8953548a843aafe8_Logo%20Roadtrack%20(1).svg" loading="lazy" alt="" height="32" class="logo"/>
           </a>
           <nav role="navigation" class="nav-menu w-nav-menu">
@@ -42,7 +42,9 @@
             </div>
             <div class="menu-wrap">
               <a href="index.php" class="nav-link white w-nav-link">Home</a>
-              <div data-hover="true" data-delay="0" data-w-id="fb88dbbd-6236-7bdd-78cd-9f14985e2426" class="nav-dropdown w-dropdown">
+              <a href="product.php" class="nav-link white w-nav-link">Product</a>
+              <a href="about.php" class="nav-link white w-nav-link">About Us</a>
+              <!-- <div data-hover="true" data-delay="0" data-w-id="fb88dbbd-6236-7bdd-78cd-9f14985e2426" class="nav-dropdown w-dropdown">
                 <div class="nav-dropdown-toggle w-dropdown-toggle">
                   <p class="nav-item-title white">About Us</p>
                 </div>
@@ -56,8 +58,8 @@
                     </a>
                   </div>
                 </nav>
-              </div>
-              <a href="product.php" class="nav-link white w-nav-link">Product</a>
+              </div> -->
+              <a href="blog.php" class="nav-link white w-nav-link">Blogs</a>
               <a href="contact.php" class="nav-link white w-nav-link">Contact Us</a>
               <div class="nav-tablet-button-holder">
                 <a href="contact.php#contact-form" class="primary-button w-button">Request Quote</a>

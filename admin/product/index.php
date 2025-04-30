@@ -32,72 +32,78 @@ if (isset($_POST["addbtn"])) {
         $up = new PhotoUpload("file", "product", "../images/product/");
 
         if ($up->save()) {
+            // Retrieve and sanitize input values
+            $title = mysqli_real_escape_string($con, $_POST["ptitle"]);
+            $desc = mysqli_real_escape_string($con, $_POST["pdesc"]);
+            $price = floatval($_POST["price"]); // Convert price to a decimal
+            $category = mysqli_real_escape_string($con, $_POST["category"]);
 
-            // Insert data into database
-            $title = $_POST["ptitle"];
-            $title = str_replace("'", "\'", $title);
-            $desc = $_POST["pdesc"];
-            $category = $_POST["pcategory"];
-            $category = str_replace("'", "\'", $category);
-            $desc = str_replace("'", "\'", $desc);
-            $imgUrl = $up->getPath(); // Complete URL of the image 
-            $imgUrl = str_replace("../", "", $imgUrl);
-            $status = 1;
-            $query = "INSERT INTO product_master(ptitle,pstitle ,pdesc,pcategory, img, pdate, status) VALUES('" . $title . "','" . $pstitle . "' ,'" . $desc . "','".$category."', '" . $imgUrl . "', NOW(), " . $status . ")";
+            // Get image path and prepare for insertion
+            $imgUrl = $up->getPath(); // Complete URL of the image
+            $imgUrl = str_replace("../", "", $imgUrl); // Remove relative path
+            $status = 1; // Active status
+
+            // Insert query
+            $query = "INSERT INTO product_master(ptitle, pdesc, price, category, img, pdate, status) 
+                      VALUES ('$title', '$desc', $price, '$category', '$imgUrl', NOW(), $status)";
+
+            // Execute the query
             $rs = mysqli_query($con, $query);
 
-
             if ($rs) {
-                UserMessage("Product added Successfully", "success");
+                UserMessage("Product added successfully", "success");
             } else {
-                UserMessage("Error Occurred. Connect with the administrator", "danger");
+                UserMessage("Error occurred: " . mysqli_error($con), "danger");
             }
         } else {
             UserMessage("Sorry, there was an error uploading your file", "danger");
         }
     } catch (Exception $e) {
-        UserMessage("Error Occurred. Connect with the administrator :" . $e->getMessage() . " ", "danger");
+        UserMessage("Error occurred. Connect with the administrator: " . $e->getMessage(), "danger");
     }
 }
 
 
+
 //edit product
-if(isset($_POST["editbtn"]))
-{
+if (isset($_POST["editbtn"])) {
     try {
         include("../util/photoupload.php");
         $up = new PhotoUpload("edit_file", "product", "../images/product/");
 
         if ($up->save()) {
 
-            // Insert data into database
-            $title = $_POST["edit_ptitle"];
-            $title = str_replace("'", "\'", $title);
-            $desc = $_POST["edit_pdesc"];
-            $category = $_POST["edit_pcategory"];
-            $category = str_replace("'", "\'", $category);
-            $desc = str_replace("'", "\'", $desc);
+            // Retrieve and sanitize input values
+            $title = mysqli_real_escape_string($con, $_POST["edit_ptitle"]);
+            $desc = mysqli_real_escape_string($con, $_POST["edit_pdesc"]);
+            $category = mysqli_real_escape_string($con, $_POST["edit_pcategory"]);
+            $status = 1; // Assuming you want the product to remain active
+
+            // Get the image path and remove the relative path prefix
             $imgUrl = $up->getPath(); // Complete URL of the image 
-            $imgUrl = str_replace("../", "", $imgUrl);
-            $status = 1;
-            $query = "UPDATE product_master SET ptitle='" . $title . "',pdesc='" . $desc . "', category='".$category."', img='" . $imgUrl . "' WHERE id=".$_POST["product_id"]." ";
+            $imgUrl = str_replace("../", "", $imgUrl); // Remove relative path prefix
+
+            // Prepare the update query
+            $query = "UPDATE product_master 
+                      SET ptitle = '$title', pdesc = '$desc', category = '$category', img = '$imgUrl', pdate = NOW(), status = $status 
+                      WHERE id = " . intval($_POST["product_id"]);
+
+            // Execute the query
             $rs = mysqli_query($con, $query);
 
-
             if ($rs) {
-                UserMessage("Product updated Successfully", "success");
+                UserMessage("Product updated successfully", "success");
             } else {
-                UserMessage("Error Occurred. Connect with the administrator", "danger");
+                UserMessage("Error occurred: " . mysqli_error($con), "danger");
             }
         } else {
             UserMessage("Sorry, there was an error uploading your file", "danger");
         }
     } catch (Exception $e) {
-        UserMessage("Error Occurred. Connect with the administrator :" . $e->getMessage() . " ", "danger");
+        UserMessage("Error occurred. Connect with the administrator: " . $e->getMessage(), "danger");
     }
-
-
 }
+
 
 
 //delete product
@@ -189,7 +195,7 @@ if(isset($_GET["id"]) && isset($_GET["d"]) && $_GET["d"]==1)
                         <label for="file" class="form-label">Upload Image</label>
                         <input type="file" class="form-control" id="file" name="img" required>
                     </div>
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label for="pdate" class="form-label">Date</label>
                         <input type="datetime-local" class="form-control" id="pdate" name="pdate" required>
                     </div>
@@ -200,7 +206,7 @@ if(isset($_GET["id"]) && isset($_GET["d"]) && $_GET["d"]==1)
                             <option value="1">Active</option>
                             <option value="0">Inactive</option>
                         </select>
-                    </div>
+                    </div> -->
                     <button type="submit" class="btn btn-primary" name="addbtn">Add Product</button>
                 </form>
                 <!-- End Form -->
