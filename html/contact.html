@@ -38,27 +38,28 @@
     <div class="hidden md:flex gap-8 ">
       <a href="index.html#home" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Home</a>
       <a href="about.html" target="_blank" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">About</a>
-      <a href="index.html#products" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Products</a>
+      <a href="index.html#products" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Audit & Tax Management </a>
       
       
-      <div x-data="{ open: false }" class="relative">
-        <!-- Services Button -->
+      <!-- <div x-data="{ open: false }" class="relative">
+        
         <button @mouseenter="open = true" @mouseleave="open = false" class="text-[#00522E] font-bold text-lg">
           Services
         </button>
       
-        <!-- Dropdown Menu -->
+        Dropdown Menu
         <div x-show="open" x-transition class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md"
              @mouseenter="open = true" @mouseleave="open = false">
           <a href="index.html#service" class="block px-4 py-2 text-gray-800 hover:bg-[#E3F5F2]">Service</a>
           <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-[#E3F5F2]">Innovation</a>
           <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-[#E3F5F2]">Quality</a>
         </div>
-      </div>
+      </div> -->
       
       
 
       <!-- Blog Button -->
+      <a href="#services" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Services</a>
       <a href="index.html#blogs" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Blogs</a>
       <a href="contact.html"  class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Contact</a>
     </div>
@@ -105,35 +106,32 @@ window.addEventListener('scroll', () => {
 
 
 <!-- ==================== About Section ==================== -->
-<section id="about" class="bg-[#E3F5F2] min-h-[70vh] pt-24 flex items-center px-4 md:px-8 lg:px-16 py-12 md:py-20 text-white">
+<section id="about" class="bg-[#FFFFFF] min-h-[50vh] flex items-center px-4 md:px-8 lg:px-16 py-12 md:py-20 text-white">
   <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-    <!-- Your content here -->
-    <!-- Your content here -->
-  
-
+    
     <!-- Image Block -->
     <div class="flex justify-center">
-      <img src="https://images.unsplash.com/photo-1589187155478-1c1e6d46d1f2?auto=format&fit=crop&w=600&q=80" 
+      <img src="https://res.cloudinary.com/dpygrd2ke/image/upload/v1748245646/746e5bf2-96b0-4a3d-b6c8-86280c3a882f.png" 
            alt="About product" 
-           class="rounded-xl shadow-xl w-full max-w-sm object-cover">
+           class=" w-full max-w-sm object-cover">
     </div>
 
     <!-- Text Block -->
     <div>
-      <h2 class="text-3xl md:text-5xl font-bold text-[#00522E] mb-4">
-        Let’s Make Your Day Better Together
-      </h2>
-      <p class="text-yellow-900 font-semibold text-lg mb-4">
-        30+ Years of working experience in packaging product manufacturing
+      <h3 class="text-3xl md:text-3xl  font-bold text-[#00522E] mb-4">
+        Supporting Your Financial Journey with Trusted Tax & Audit Expertise
+      </h3>
+      <p class="text-yellow-900 font-semibold  text-lg mb-4">
+        Grounded in Integrity. Committed to Clarity. Focused on You.
       </p>
-      <p class="text-[#00522E] mb-6 text-base md:text-lg">
-        We offer a wide range of packaging materials like paper cups, paper bowls, plastic plates, and eco-friendly alternatives.
+      <p class="text-[#00522E] mb-6 text-base  md:text-lg">
+        We simplify financial processes so you can focus on what matters.
       </p>
       <ul class="space-y-3 text-[#00522E] font-medium text-base md:text-lg">
-        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Best quality products</li>
-        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Eco-friendly packaging</li>
-        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Trusted by 1000+ clients</li>
-        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Affordable pricing</li>
+        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Reliable, high-quality service</li>
+        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Solutions tailored to your unique needs</li>
+        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Backed by experience and client trust</li>
+        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Transparent and fair pricing</li>
       </ul>
     </div>
 
@@ -191,13 +189,14 @@ window.addEventListener('scroll', () => {
 
 
 <!-- Footer -->
+<!-- Footer -->
 <footer id="contact" class="bg-[#FFFFFF] text-[#00522E] py-10">
   <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
     
     <!-- Logo & Tagline -->
     <div>
       <h2 class="text-2xl font-bold mb-4">
-        <span class="text-yellow-400">Causeway</span> EXIM
+        <span class="text-yellow-400">AtharvaPadalkar</span> Associates
       </h2>
       <p class="mb-4">Best Quality Disposable <br>Food Packaging Products</p>
       <div class="flex gap-3 mt-4">
@@ -214,9 +213,9 @@ window.addEventListener('scroll', () => {
       <h3 class="text-lg  text-[#FFC430] font-semibold mb-4">Links</h3>
       <ul class="space-y-2">
         <li><a href="#" class="hover:text-yellow-400">About Us</a></li>
-        <li><a href="#" class="hover:text-yellow-400">Our Products</a></li>
+        <li><a href="#" class="hover:text-yellow-400">Audits</a></li>
         <li><a href="#" class="hover:text-yellow-400">Blog</a></li>
-        <li><a href="#" class="hover:text-yellow-400">FAQs</a></li>
+        <li><a href="#" class="hover:text-yellow-400">Services</a></li>
         <li><a href="#" class="hover:text-yellow-400">Contacts</a></li>
       </ul>
     </div>
@@ -225,9 +224,9 @@ window.addEventListener('scroll', () => {
     <div>
       <h3 class="text-lg text-[#FFC430] font-semibold mb-4">Contact</h3>
       <ul class="space-y-2 text-sm">
-        <li class="flex items-start gap-2"><span>📞</span> 1233</li>
-        <li class="flex items-start gap-2"><span>📧</span> xyz@gmail.com</li>
-        <li class="flex items-start gap-2"><span>📍</span>123, abc, india</li>
+        <li class="flex items-start gap-2"><span>📞</span>8149306224</li>
+        <li class="flex items-start gap-2"><span>📧</span> atharvapadalkar@gmail.com</li>
+        <li class="flex items-start gap-2"><span>📍</span>Flat No. 5, Aatish Apartment, Plot No. 13, Behind Onkar Gas Agency, N-8, CIDCO, Aurangabad."</li>
       </ul>
     </div>
 
@@ -251,9 +250,8 @@ window.addEventListener('scroll', () => {
 
 <!-- Footer Bottom Green Strip -->
 <div class="bg-[#00522E] text-white text-center py-4">
-  <p class="text-sm">© All Copyright 2025 by xyz.com</p>
+  <p class="text-sm">© All Copyright 2025 by anjalik1130@gmail.com</p>
 </div>
-
 
 <!-- Font Awesome CDN for Icons (Optional) -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>

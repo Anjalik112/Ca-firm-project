@@ -7,6 +7,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/alpinejs" defer></script>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+
 </head>
 <style>
   body {
@@ -30,42 +35,39 @@
   </style>
   
   <!-- Navbar -->
-<nav id="navbar" class="fixed w-full z-50 top-0 left-0 transition-all duration-300 bg-transparent">
+<nav id="navbar" class="fixed w-full z-50 top-0 left-0 bg-white ">
   <div class="max-w-7xl mx-auto flex items-center justify-between py-6 px-4">
     <div class="text-[#00522E] text-3xl font-bold">
-      Causeway EXIM
+      <img class="lg:w-40 lg:h-30" src="https://res.cloudinary.com/dpygrd2ke/image/upload/v1748173703/Group_155_nyeo7n.png">
     </div>
-    <div class="hidden md:flex gap-8 ">
-      <a href="html/index.html" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Home</a>
-      <a href="about.html" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">About</a>
-      <a href="#products" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Products</a>
-      
-      
-      <div x-data="{ open: false }" class="relative">
-        <!-- Services Button -->
+    <div class="hidden md:flex gap-8">
+      <a href="index.html" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Home</a>
+      <a href="#about" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">About</a>
+      <a href="#products" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Audit & Tax Management</a>
+
+      <!-- <div x-data="{ open: false }" class="relative">
+        Services Button
         <button @mouseenter="open = true" @mouseleave="open = false" class="text-[#00522E] font-bold text-lg">
           Services
         </button>
-      
-        <!-- Dropdown Menu -->
+
+        
         <div x-show="open" x-transition class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md"
              @mouseenter="open = true" @mouseleave="open = false">
           <a href="#service" class="block px-4 py-2 text-gray-800 hover:bg-[#E3F5F2]">Service</a>
-          <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-[#E3F5F2]">Innovation</a>
+           <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-[#E3F5F2]">Innovation</a>
           <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-[#E3F5F2]">Quality</a>
-        </div>
-      </div>
-      
-      
+        </div> 
+      </div> -->
+      <a href="#service" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Services</a>
 
-      <!-- Blog Button -->
       <a href="#blogs" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Blogs</a>
       <a href="contact.html" target="_blank" class="text-[#00522E] font-bold hover:text-[#FFC430] text-lg transition">Contact</a>
     </div>
 
-    <!-- Mobile Menu Toggle Button -->
+    <!-- Mobile Toggle -->
     <div class="md:hidden flex items-center">
-      <button @click="open = !open" class="text-[#00522E] focus:outline-none" x-data="{ open: false }" x-on:click="$dispatch('toggle')">
+      <button @click="open = !open" class="text-[#00522E]" x-data="{ open: false }" x-on:click="$dispatch('toggle')">
         <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
           <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -80,75 +82,60 @@
   <div x-show="open" class="md:hidden bg-black/90 backdrop-blur-md flex flex-col items-center space-y-6 py-6">
     <a href="#" class="text-white text-lg">Home</a>
     <a href="#" class="text-white text-lg">About</a>
-    <a href="#" class="text-white text-lg">Products</a>
+    <a href="#" class="text-white text-lg">Audit & Tax Management</a>
     <a href="#" class="text-white text-lg">Contact</a>
     <a href="#" class="text-white text-lg">Blogs</a>
   </div>
 </div>
 
-<script>
-   const navbarProductPage = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    navbarProductPage.classList.add('bg-[#ffffff]');  // Background color when scrolled
-    navbarProductPage.classList.remove('bg-transparent');
-  } else {
-    navbarProductPage.classList.remove('bg-[#ffffff]');
-    navbarProductPage.classList.add('bg-transparent');
-  }
-});
-
-</script>
-
   
   
-<!-- Hero Section with Different Texts -->
+<!-- Hero Section with Visible Backgrounds -->
 <section id="home" x-data="{
   currentSlide: 0,
   slides: [
     {
-      img: 'https://images.unsplash.com/photo-1556767576-cfba2f8cf7b7?auto=format&fit=crop&w=1470&q=80',
-      heading: 'We Provide Quality Paper Products',
-      subheading: 'We’ve One Mission to be the Best Paper Products Company.'
+      img: 'https://res.cloudinary.com/dpygrd2ke/image/upload/v1748243405/banner-4_z7vxmn.jpg',
+      heading: 'Expert Tax & Audit Solutions',
+      subheading: 'Highlights your core services and your role in helping clients grow.'
     },
     {
-      img: 'https://images.unsplash.com/photo-1602526432364-33d29da2fa7b?auto=format&fit=crop&w=1470&q=80',
-      heading: 'Eco-Friendly Solutions',
-      subheading: 'Sustainable paper packaging for a greener future.'
+      img: 'https://res.cloudinary.com/dpygrd2ke/image/upload/v1748244038/0eae4d3f-eb15-415a-939a-bd935eca2ca4.png',
+      heading: 'Integrity. Precision. Excellence',
+      subheading: 'Emphasizes professionalism and trustworthiness.'
     },
     {
-      img: 'https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1470&q=80',
-      heading: 'Innovation in Every Fold',
-      subheading: 'Crafting products that match modern lifestyle needs.'
+      img: 'https://res.cloudinary.com/dpygrd2ke/image/upload/v1748245026/30000109-ebd1-4fd8-8b46-8eac0b019955.png',
+      heading: 'Simplifying Compliance',
+      subheading: 'Communicates ease of working with you and strong advisory support.'
     }
   ],
   init() {
     setInterval(() => {
-      this.currentSlide = (this.currentSlide + 1) % this.slides.length
+      this.currentSlide = (this.currentSlide + 1) % this.slides.length;
     }, 3000)
   }
 }" class="relative w-full h-screen overflow-hidden">
 
-  <!-- Background Images with Zoom-In Effect -->
+  <!-- Static Background Images -->
   <template x-for="(slide, index) in slides" :key="index">
     <div x-show="currentSlide === index"
-         x-transition:enter="transition transform duration-[4000ms] ease-in-out"
-         x-transition:enter-start="opacity-0 scale-100"
-         x-transition:enter-end="opacity-100 scale-110"
-         class="absolute inset-0 w-full h-full bg-cover bg-center"
+         x-transition:enter="transition-opacity duration-1000"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         class="absolute inset-0 w-full h-full bg-cover bg-center z-0"
          :style="'background-image: url(' + slide.img + ')'">
     </div>
   </template>
 
   <!-- Hero Content -->
-  <div class="absolute inset-0 bg-[#E3F5F2] flex flex-col justify-center items-center text-center text-white px-4">
+  <div class="absolute inset-0 bg-black bg-opacity-40 z-10 flex flex-col justify-center items-center text-center text-white px-4">
     <h1 class="text-4xl md:text-6xl font-bold mb-4" x-text="slides[currentSlide].heading"></h1>
     <p class="text-lg md:text-xl mb-6" x-text="slides[currentSlide].subheading"></p>
-    
   </div>
 
   <!-- Dots Navigation -->
-  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
     <template x-for="(slide, index) in slides" :key="index">
       <div @click="currentSlide = index"
            :class="{'bg-[#00BA68]': currentSlide === index, 'bg-[#00522E]': currentSlide !== index}"
@@ -158,33 +145,35 @@ window.addEventListener('scroll', () => {
   </div>
 </section>
 
+
+
 <!-- ==================== About Section ==================== -->
 <section id="about" class="bg-[#FFFFFF] min-h-[50vh] flex items-center px-4 md:px-8 lg:px-16 py-12 md:py-20 text-white">
   <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
     
     <!-- Image Block -->
     <div class="flex justify-center">
-      <img src="https://images.unsplash.com/photo-1589187155478-1c1e6d46d1f2?auto=format&fit=crop&w=600&q=80" 
+      <img src="https://res.cloudinary.com/dpygrd2ke/image/upload/v1748245646/746e5bf2-96b0-4a3d-b6c8-86280c3a882f.png" 
            alt="About product" 
-           class="rounded-xl shadow-xl w-full max-w-sm object-cover">
+           class=" w-full max-w-sm object-cover">
     </div>
 
     <!-- Text Block -->
     <div>
-      <h2 class="text-3xl md:text-5xl font-bold text-[#00522E] mb-4">
-        Let’s Make Your Day Better Together
-      </h2>
-      <p class="text-yellow-900 font-semibold text-lg mb-4">
-        30+ Years of working experience in packaging product manufacturing
+      <h3 class="text-3xl md:text-3xl  font-bold text-[#00522E] mb-4">
+        Supporting Your Financial Journey with Trusted Tax & Audit Expertise
+      </h3>
+      <p class="text-yellow-900 font-semibold  text-lg mb-4">
+        Grounded in Integrity. Committed to Clarity. Focused on You.
       </p>
-      <p class="text-[#00522E] mb-6 text-base md:text-lg">
-        We offer a wide range of packaging materials like paper cups, paper bowls, plastic plates, and eco-friendly alternatives.
+      <p class="text-[#00522E] mb-6 text-base  md:text-lg">
+        We simplify financial processes so you can focus on what matters.
       </p>
       <ul class="space-y-3 text-[#00522E] font-medium text-base md:text-lg">
-        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Best quality products</li>
-        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Eco-friendly packaging</li>
-        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Trusted by 1000+ clients</li>
-        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Affordable pricing</li>
+        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Reliable, high-quality service</li>
+        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Solutions tailored to your unique needs</li>
+        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Backed by experience and client trust</li>
+        <li class="flex items-center"><span class="text-yellow-500 text-xl mr-2">✔</span>Transparent and fair pricing</li>
       </ul>
     </div>
 
@@ -194,8 +183,8 @@ window.addEventListener('scroll', () => {
 <!-- ==================== Products Section ==================== -->
 <section id="products" class="min-h-screen bg-[#F5F5F4] px-4 py-16 md:px-12 lg:px-24 flex flex-col justify-center">
   <div class="max-w-7xl mx-auto text-center mb-16">
-    <p class="text-yellow-500 font-semibold uppercase tracking-wider text-sm">Products We’re Offering</p>
-    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Our Products Category</h2>
+    <p class="text-yellow-500 font-semibold uppercase tracking-wider text-sm"></p>
+    <h2 class="text-3xl md:text-4xl text-yellow-500 font-bold ">Audit and Tax Management</h2>
   </div>
 
   <!-- Responsive Grid for Product Cards -->
@@ -206,18 +195,20 @@ window.addEventListener('scroll', () => {
       <!-- Circle Container -->
       <div class="lg:w-40 lg:h-40 w-24 h-24 bg-neutral-100 group-hover:bg-[#E3F5F2] rounded-full flex items-center justify-center mt-16 mb-4 mx-auto">
         <!-- Image inside the circle -->
-        <img alt="Icon" loading="lazy" width="48" height="48" src="images/tissue-box.png" class="w-16 h-16 object-cover" />
+        <img alt="Icon" loading="lazy" width="48" height="48" src="images/document (1).png" class="w-16 h-16 object-cover" />
+
       </div>
+      
     
       <!-- Product Description -->
       <div class="p-6">
         <h3 class="text-xl font-semibold text-[#164e2f] mb-2 transition-colors duration-100 group-hover:text-white">
-          Paper Packaging
+          ITR Filing
         </h3>
         <p class="text-[#00522E] text-sm mb-4 group-hover:text-white">
-          We have best quality paper cup, paper plate, paper bowl, paper soup container, paper salad bowl.
+          ITR is a form in which an Assessee files his information about Income and tax payable to the Income Tax Department.
         </p>
-        <a href="product_1.html" target="_blank" class="text-yellow-500 font-bold text-lg hover:underline group-hover:text-white">→</a>
+        <a href="contact.html" target="_blank" class="text-yellow-500 font-bold text-lg hover:underline group-hover:text-white">→</a>
       </div>
     </div>
     
@@ -226,18 +217,18 @@ window.addEventListener('scroll', () => {
       <!-- Circle Container -->
       <div class="lg:w-40 lg:h-40 w-24 h-24 bg-neutral-100 group-hover:bg-[#E3F5F2] rounded-full flex items-center justify-center mt-16 mb-4 mx-auto">
         <!-- Image inside the circle -->
-        <img alt="Icon" loading="lazy" width="48" height="48" src="images/tissue-box.png" class="w-16 h-16 object-cover" />
+        <img alt="Icon" loading="lazy" width="48" height="48" src="images/briefcase.png" class="w-16 h-16 object-cover" />
       </div>
     
       <!-- Product Description -->
       <div class="p-6">
         <h3 class="text-xl font-semibold text-[#164e2f] mb-2 transition-colors duration-100 group-hover:text-white">
-          Paper Packaging
+          ROC Filing
         </h3>
         <p class="text-[#00522E] text-sm mb-4 group-hover:text-white">
-          We have best quality paper cup, paper plate, paper bowl, paper soup container, paper salad bowl.
+          Annual General Meeting of the company is conducted once a year and the due date for the first Annual General Meeting.
         </p>
-        <a href="product_2.html" class="text-yellow-500 font-bold text-lg hover:underline group-hover:text-white">→</a>
+        <a href="contact.html" class="text-yellow-500 font-bold text-lg hover:underline group-hover:text-white">→</a>
       </div>
     </div>
 
@@ -246,18 +237,18 @@ window.addEventListener('scroll', () => {
       <!-- Circle Container -->
       <div class="lg:w-40 lg:h-40 w-24 h-24 bg-neutral-100 group-hover:bg-[#E3F5F2] rounded-full flex items-center justify-center mt-16 mb-4 mx-auto">
         <!-- Image inside the circle -->
-        <img alt="Icon" loading="lazy" width="48" height="48" src="images/tissue-box.png" class="w-16 h-16 object-cover" />
+        <img alt="Icon" loading="lazy" width="48" height="48" src="images/tag.png" class="w-16 h-16 object-cover" />
       </div>
     
       <!-- Product Description -->
       <div class="p-6">
         <h3 class="text-xl font-semibold text-[#164e2f] mb-2 transition-colors duration-100 group-hover:text-white">
-          Paper Packaging
+          GST Return
         </h3>
         <p class="text-[#00522E] text-sm mb-4 group-hover:text-white">
-          We have best quality paper cup, paper plate, paper bowl, paper soup container, paper salad bowl.
+          All business  & entrepreneurs who are registered under the GST mechanism have to mandatorily file the GST returns in the relevant GST form 
         </p>
-        <a href="product_3.html" class="text-yellow-500 font-bold text-lg hover:underline group-hover:text-white">→</a>
+        <a href="contact.html" class="text-yellow-500 font-bold text-lg hover:underline group-hover:text-white">→</a>
       </div>
     </div>
     
@@ -266,18 +257,18 @@ window.addEventListener('scroll', () => {
       <!-- Circle Container -->
       <div class="lg:w-40 lg:h-40 w-24 h-24 bg-neutral-100 group-hover:bg-[#E3F5F2] rounded-full flex items-center justify-center mt-16 mb-4 mx-auto">
         <!-- Image inside the circle -->
-        <img alt="Icon" loading="lazy" width="48" height="48" src="images/tissue-box.png" class="w-16 h-16 object-cover" />
+        <img alt="Icon" loading="lazy" width="48" height="48" src="images/task.png" class="w-16 h-16 object-cover" />
       </div>
     
       <!-- Product Description -->
       <div class="p-6">
         <h3 class="text-xl font-semibold text-[#164e2f] mb-2 transition-colors duration-100 group-hover:text-white">
-          Paper Packaging
+          TDS Return
         </h3>
         <p class="text-[#00522E] text-sm mb-4 group-hover:text-white">
-          We have best quality paper cup, paper plate, paper bowl, paper soup container, paper salad bowl.
+          TDS return is a quarterly statement to be given to the IT department. It is compulsory for Deductor to submit a TDS return on time.
         </p>
-        <a href="product_4.html" class="text-yellow-500 font-bold text-lg hover:underline group-hover:text-white">→</a>
+        <a href="contact.html" class="text-yellow-500 font-bold text-lg hover:underline group-hover:text-white">→</a>
       </div>
     </div>
 
@@ -288,28 +279,29 @@ window.addEventListener('scroll', () => {
 <section id="service" class="w-full min-h-[50vh] bg-[#E3F5F2] py-12 px-4" x-data="{
   tabs: [
     {
-      title: 'SERVICE',
-      desc: 'Service is our top priority for our customers to experience great products with uncompromised services.',
+      title: 'SERVICES',
+      desc: 'At Athrva Padalkar & Associates, we are committed to delivering dependable financial services with personalized attention. Our goal is to simplify compliance and enhance financial clarity for businesses and individuals. From audit planning to regulatory filings, we offer end-to-end financial guidance.',
       points: [
-        { heading: 'Honesty and Dependability', text: 'Kafka India is a trustworthy food packaging brand. We take care of our customer’s happiness always.' }
+        { heading: '✔️ Accurate Reporting', text: 'Ensuring compliance with updated tax and financial regulations.' },
+        { heading: '✔️ Timely Filing', text: 'On-time submissions to avoid penalties and maintain credibility.' }
       ],
-      icon: 'https://cdn-icons-png.flaticon.com/512/747/747376.png'
+      icon: 'https://res.cloudinary.com/dpygrd2ke/image/upload/v1748247474/e224d7e7-cf50-4327-a45e-64972a5d13df.png'
     },
     {
       title: 'INNOVATION',
-      desc: 'We put great efforts in R&D to come up with more innovative products.',
+      desc: 'We put great efforts in R&D to come up with more innovative financial and tax management solutions.',
       points: [
-        { heading: 'We Are Creative', text: 'We create food packaging products: paper, plastic, eco-friendly, and raw materials.' },
-        { heading: 'We are Always Improving', text: 'Our mission is to improve daily, solve problems, and innovate better.' }
+        { heading: 'We Are Creative', text: 'We craft efficient compliance strategies and tailored audit plans.' },
+        { heading: 'We are Always Improving', text: 'We refine processes and introduce smarter workflows every day.' }
       ],
       icon: 'https://cdn-icons-png.flaticon.com/512/747/747376.png'
     },
     {
       title: 'QUALITY',
-      desc: 'Our primary focus is to make the best quality products to enrich the customer experience.',
+      desc: 'Our primary focus is to deliver the highest quality services to enrich client experience.',
       points: [
-        { heading: 'We’re Produce Quality Products', text: 'All products of Kafka are made using high quality raw material.' },
-        { heading: 'Quality Commitment', text: 'We’re committed to fulfilling expectations and ensuring your complete satisfaction.' }
+        { heading: 'We Deliver Quality', text: 'We ensure accurate, compliant, and timely financial reporting.' },
+        { heading: 'Client Satisfaction', text: 'Trusted by 1000+ businesses for commitment and clarity.' }
       ],
       icon: 'https://cdn-icons-png.flaticon.com/512/747/747376.png'
     }
@@ -320,24 +312,21 @@ window.addEventListener('scroll', () => {
   },
   prev() {
     this.currentIndex = (this.currentIndex - 1 + this.tabs.length) % this.tabs.length;
-  },
- 
+  }
 }">
   <div class="relative w-full max-w-7xl mx-auto overflow-hidden">
-
-    <!-- Slides -->
     <div class="flex transition-transform duration-700 ease-in-out"
          :style="`transform: translateX(-${currentIndex * 100}%);`">
       <template x-for="(tab, i) in tabs" :key="i">
         <div class="min-w-full flex flex-col md:flex-row items-center justify-between px-4 md:px-10 min-h-[70vh]">
           <img :src="tab.icon" alt="Service Icon" class="w-full md:w-1/2 max-h-[300px] object-contain mb-6 md:mb-0" />
           <div class="md:w-1/2 space-y-4 text-center md:text-left">
-            <h2 class="text-3xl font-bold text-black" x-text="tab.title"></h2>
-            <p class="text-gray-700 text-lg" x-text="tab.desc"></p>
+            <h2 class="text-5xl font-bold text-yellow-500 text-center" x-text="tab.title"></h2>
+            <p class="text-[#00522E] text-lg" x-text="tab.desc"></p>
             <template x-for="point in tab.points" :key="point.heading">
               <div>
-                <h3 class="font-semibold text-lg" x-text="point.heading"></h3>
-                <p class="text-gray-600" x-text="point.text"></p>
+                <h3 class="font-semibold text-lg text-[#00522E]" x-text="point.heading"></h3>
+                <p class="text-[#00522E]" x-text="point.text"></p>
               </div>
             </template>
           </div>
@@ -345,21 +334,11 @@ window.addEventListener('scroll', () => {
       </template>
     </div>
 
-    <!-- Side Arrows -->
-    <button @click="prev"
-    class="absolute left-1 top-1/2 transform -translate-y-1/2 hover:scale-125 bg-[] text-[#FFC430] hover:text-[#00522E] text-5xl p-1 rounded-md z-10">
-    &#8592;
-</button>
-
-<button @click="next"
-    class="absolute right-1 top-1/2 transform -translate-y-1/2 hover:scale-125 text-[#FFC430] bg- hover:text-[#00522E] text-5xl p-1 rounded-md z-10">
-    &#8594;
-</button>
-
-
-
+    <!-- Arrows -->
+ 
   </div>
 </section>
+
 
 <!-- Alpine.js -->
 <script src="https://unpkg.com/alpinejs" defer></script>
@@ -373,60 +352,63 @@ window.addEventListener('scroll', () => {
   blogs: [
     {
       category: 'Latest',
-      title: 'Why Logistics is Evolving in 2025',
-      desc: 'A dive into the future of logistics and how new technologies shape the industry...',
-      img: 'https://images.unsplash.com/photo-1573164574393-507b0f2f98d4?fit=crop&w=600&q=80'
+      title: 'Navigating GST Compliance in 2025',
+      desc: 'Understand the latest changes in GST regulations and how your business can stay compliant without hassle.',
+      img: 'https://res.cloudinary.com/dpygrd2ke/image/upload/v1748271439/aed8006a-63e4-4a09-a516-90334f5c3c9e.png'
 
       
     },
     {
       category: 'Insights',
-      title: 'Automation & Supply Chain',
-      desc: 'Understanding how automation boosts efficiency in warehouse and transport...',
+      title: 'Why Financial Planning Matters for SMEs',
+      desc: 'Explore how structured financial strategies can help small businesses maximize profits and minimize risks.',
       img: 'https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?fit=crop&w=600&q=80'
     },
     {
       category: 'Stories',
-      title: 'Top 5 Global Trade Trends',
-      desc: 'Explore the recent shifts in global trade and what businesses must prepare for...',
+      title: 'Income Tax Filing: Common Mistakes to Avoid',
+      desc: 'A quick guide for individuals and businesses to steer clear of errors during ITR filing season.',
       img: 'https://images.unsplash.com/photo-1581091870627-1ee31f64d9ec?fit=crop&w=600&q=80'
     }
   ]
 }">
   <div class="max-w-7xl mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-12">Our Blogs</h2>
+    <h2 class="text-4xl font-bold mb-12 text-yellow-500">Our Blogs</h2>
 
     <!-- Filter Buttons -->
-    <div class="flex justify-center  gap-4 mb-12 flex-wrap">
+    <div class="flex justify-center gap-4 mb-12 flex-wrap">
       <template x-for="tab in ['Latest', 'Insights', 'Stories']" :key="tab">
         <button 
           class="px-6 py-2 rounded-full font-semibold border transition-all duration-300"
-          :class="activeTab === tab ? ' bg-[#00522E] text-white' : 'border-[#FFC430] text-black hover:bg-gray-200'"
-          @click="activeTab = tab"
-          x-text="tab">
+          :class="activeTab === tab ? 'bg-[#00522E] text-white' : 'border-[#FFC430] text-black hover:bg-gray-200'"
+          @click="tab === 'Latest' && (activeTab = tab)"
+          x-text="tab"
+          :disabled="tab !== 'Latest'"
+          :class="tab !== 'Latest' ? 'cursor-not-allowed opacity-50' : ''">
         </button>
       </template>
     </div>
+    
 
     <!-- Blog Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
       <template x-for="(blog, index) in blogs.filter(b => b.category === activeTab)" :key="index">
         <div class="bg-[#E3F5F2] rounded-2xl shadow-lg transition-all p-6 flex flex-col h-full transform group hover:bg-[#00522E]">
-          <img :src="blog.img" alt="" class="rounded-xl mb-6 w-full h-60 object-cover" />
+          <img :src="blog.img" alt="" class="rounded-xl mb-6 w-full h-70 object-cover"/>
           <h3 class="font-bold text-xl mb-3 text-[#164e2f] group-hover:text-white transition-colors duration-300" x-text="blog.title"></h3>
           <p class="text-[#4e4e4e] text-sm group-hover:text-white transition-colors duration-300" x-text="blog.desc"></p>
         </div>
       </template>
       <template x-for="(blog, index) in blogs.filter(b => b.category === activeTab)" :key="index">
         <div class="bg-[#E3F5F2] rounded-2xl shadow-lg transition-all p-6 flex flex-col h-full transform group hover:bg-[#00522E]">
-          <img :src="blog.img" alt="" class="rounded-xl mb-6 w-full h-60 object-cover" />
+          <img :src="blog.img" alt="" class="rounded-xl mb-6 w-full h-70 object-cover" />
           <h3 class="font-bold text-xl mb-3 text-[#164e2f] group-hover:text-white transition-colors duration-300" x-text="blog.title"></h3>
           <p class="text-[#4e4e4e] text-sm group-hover:text-white transition-colors duration-300" x-text="blog.desc"></p>
         </div>
       </template>
       <template x-for="(blog, index) in blogs.filter(b => b.category === activeTab)" :key="index">
         <div class="bg-[#E3F5F2] rounded-2xl shadow-lg transition-all p-6 flex flex-col h-full transform group hover:bg-[#00522E]">
-          <img :src="blog.img" alt="" class="rounded-xl mb-6 w-full h-60 object-cover" />
+          <img :src="blog.img" alt="" class="rounded-xl mb-6 w-full h-70 object-cover" />
           <h3 class="font-bold text-xl mb-3 text-[#164e2f] group-hover:text-white transition-colors duration-300" x-text="blog.title"></h3>
           <p class="text-[#4e4e4e] text-sm group-hover:text-white transition-colors duration-300" x-text="blog.desc"></p>
         </div>
@@ -451,7 +433,7 @@ window.addEventListener('scroll', () => {
     <!-- Logo & Tagline -->
     <div>
       <h2 class="text-2xl font-bold mb-4">
-        <span class="text-yellow-400">Causeway</span> EXIM
+        <span class="text-yellow-400">AtharvaPadalkar</span> Associates
       </h2>
       <p class="mb-4">Best Quality Disposable <br>Food Packaging Products</p>
       <div class="flex gap-3 mt-4">
@@ -468,9 +450,9 @@ window.addEventListener('scroll', () => {
       <h3 class="text-lg  text-[#FFC430] font-semibold mb-4">Links</h3>
       <ul class="space-y-2">
         <li><a href="#" class="hover:text-yellow-400">About Us</a></li>
-        <li><a href="#" class="hover:text-yellow-400">Our Products</a></li>
+        <li><a href="#" class="hover:text-yellow-400">Audits</a></li>
         <li><a href="#" class="hover:text-yellow-400">Blog</a></li>
-        <li><a href="#" class="hover:text-yellow-400">FAQs</a></li>
+        <li><a href="#" class="hover:text-yellow-400">Services</a></li>
         <li><a href="#" class="hover:text-yellow-400">Contacts</a></li>
       </ul>
     </div>
@@ -479,9 +461,9 @@ window.addEventListener('scroll', () => {
     <div>
       <h3 class="text-lg text-[#FFC430] font-semibold mb-4">Contact</h3>
       <ul class="space-y-2 text-sm">
-        <li class="flex items-start gap-2"><span>📞</span> 1233</li>
-        <li class="flex items-start gap-2"><span>📧</span> xyz@gmail.com</li>
-        <li class="flex items-start gap-2"><span>📍</span>123, abc, india</li>
+        <li class="flex items-start gap-2"><span>📞</span>8149306224</li>
+        <li class="flex items-start gap-2"><span>📧</span> atharvapadalkar@gmail.com</li>
+        <li class="flex items-start gap-2"><span>📍</span>Flat No. 5, Aatish Apartment, Plot No. 13, Behind Onkar Gas Agency, N-8, CIDCO, Aurangabad."</li>
       </ul>
     </div>
 
@@ -505,7 +487,7 @@ window.addEventListener('scroll', () => {
 
 <!-- Footer Bottom Green Strip -->
 <div class="bg-[#00522E] text-white text-center py-4">
-  <p class="text-sm">© All Copyright 2025 by xyz.com</p>
+  <p class="text-sm">© All Copyright 2025 by anjalik1130@gmail.com</p>
 </div>
 
 
@@ -518,7 +500,7 @@ window.addEventListener('scroll', () => {
 
 
 <!-- Scroll Script for Navbar -->
-<script>
+<!-- <script>
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
@@ -532,4 +514,4 @@ window.addEventListener('scroll', () => {
 </script>
 
 </body>
-</html>
+</html> -->
